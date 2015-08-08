@@ -1,0 +1,239 @@
+
+html, body, div, span,  h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, em, img, ins, kbd, q, s, samp, small, strong, sub, sup, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+  font-family: 'Karla', Arial, sans-serif;
+}
+
+.button_overrides {
+  font-family: 'Karla', Arial, sans-serif;
+  border-radius: 2px;
+  background-image: none;
+  border: none;
+  text-shadow: none;
+  font-size: 1.5em;
+  padding: 14px;
+  box-shadow: none;
+
+  &:hover {
+    background-image: none !important; 
+  }
+}
+
+.section, .panel {
+  border-radius: 0px;
+  box-shadow: none;
+}
+
+form .buttons input[type=submit], form .buttons input[type=button], form .buttons button, form .actions input[type=submit], form .actions input[type=button], form .actions button {
+  @extend .button_overrides;
+}
+
+form fieldset.inputs {
+  background: none;
+  border-radius: 0px;
+  box-shadow: none;
+}
+
+form fieldset ol > li label {
+  font-size: 2.3em;
+  padding-top: 27px;
+  padding-right: 20px;
+  box-sizing: border-box;
+  text-align: right;
+}
+
+form input[type=text], form input[type=password], form input[type=email], form input[type=number], form input[type=url], form input[type=tel], form textarea {
+  border: 1px solid #c9d0d6;
+  font-size: 2.8em;
+  font-family: Karla, Arial, sans-serif;
+  padding: 16px 18px 16px;
+  box-sizing: border-box; 
+}
+
+form fieldset legend {
+  display: none;
+}
+
+table.index_table th {
+  font-size: 1.6em;
+  padding: 25px 10px 22px 10px;
+}
+
+table.index_table td {
+  font-size: 2.2em;
+  padding: 25px 12px 22px 12px;
+}
+
+table.index_table th.sortable a {
+  background: none;
+  padding-left: 0px;
+}
+
+.table_actions {
+  text-align: right;
+}
+
+.formtastic.album, #main_content {
+  p:not(.inline-errors) {
+    &:not(.inline-errors) {
+      &:not(.inline-hints) {
+        padding-left: 20%;
+        font-size: 2.2em;
+        text-align: right;
+        width: calc(80% - 35px);
+        padding-bottom: 10px;
+      }
+    }
+  }
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+
+  &:-moz-placeholder { /* Firefox 18- */
+    @content;
+  }
+
+  &::-moz-placeholder {  /* Firefox 19+ */
+    @content;
+  }
+
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+body.active_admin .select2-container {
+  width: calc(80% - 22px);
+  font-size: 2.2em;
+  font-family: 'Karla', Arial, sans-serif;
+
+  ul.select2-choices {
+    padding: 16px 18px 16px;
+    border-radius: 3px;
+    border: 1px solid #c9d0d6;
+    background: none;
+
+    li.select2-search-field {
+      font-family: 'Karla', Arial, sans-serif;
+      input {
+        font-family: 'Karla', Arial, sans-serif;
+        @include placeholder {
+          font-family: 'Karla', Arial, sans-serif;
+        }
+      }
+    }
+
+    li.select2-search-choice {
+      height: 28px;
+      border: none;
+      background: aliceblue;
+      padding: 6px 18px 6px;
+      div {
+        padding-top: 6px; 
+      }
+    }
+  }
+}
+
+.flash {
+  background-image: none;
+  text-shadow: none;
+  border: none;
+}
+
+.section > h3, .panel > h3 {
+  background-image: none;
+  border: none;
+  padding: 25px;
+  font-size: 2.2em;
+  text-shadow: none;
+  box-shadow: none;
+}
+
+.formtastic.image, .formtastic.album {
+  fieldset.actions {
+    ol {
+      float: right;
+      margin-right: 30px;      
+    }  
+  }
+}
+
+
+form fieldset.buttons li.cancel a, form fieldset.actions li.cancel a {
+  @extend .button_overrides;
+}
+
+body.logged_out #content_wrapper {
+  width: 870px;
+}
+
+.col.col-thumbnail {
+  img {
+    height: 100px; 
+  }
+}
+
+li.file.input {
+  p.inline-hints {
+    img {
+      height: 300px; 
+    } 
+  }
+}
+
+body.logged_out #content_wrapper #active_admin_content {
+  border-radius: 3px;
+  box-shadow: none;
+  padding: 40px 90px;
+}
+
+form fieldset > ol > li.boolean label[for='admin_user_remember_me'] {
+  text-align: left;
+}
+
+body.logged_out h2 {
+  display: none;
+}
+
+#header {
+  height: 40px;
+  background-image: none;
+  border: none;
+  text-shadow: none;
+
+  ul.tabs > li a {
+    border-radius: 0px;
+    padding: 19px 10px 17px 10px;
+  }
+}
+
+#title_bar {
+  background-image: none;
+  border: none;
+  text-shadow: none;
+  box-shadow: none;
+
+  .action_items {
+    span.action_item > a {
+      @extend .button_overrides;
+    } 
+  }
+}
+
+table.index_table th {
+  background-image: none;
+  border: none;
+  text-shadow: none;
+  box-shadow: none;
+
+  &:last-child {
+    border: none; 
+  }
+}
+
+#footer {
+  display: none;
+}

@@ -1,0 +1,11 @@
+<h1>Albums#show</h1>
+<p>Find me in app/views/albums/show.html.erb</p>
+
+<%= @album.name %>
+
+
+<% @album.images.each do |image| %>
+  <div class='image'>
+    <%= image_tag image.file.url(:thumb) %>
+  </div>
+<% end %>
