@@ -16,7 +16,7 @@ gem "paperclip", "~> 4.3"
 gem "friendly_id"
 gem 'select2-rails'
 gem 'acts-as-taggable-on', '~> 3.5.0'
-gem 'masonry-rails'
+gem 'ledermann-rails-settings'
 
 group :development, :test do
   gem 'pry'

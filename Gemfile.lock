@@ -113,12 +113,12 @@ GEM
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    ledermann-rails-settings (2.4.0)
+      activerecord (>= 3.1)
     loofah (2.0.2)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
-    masonry-rails (0.2.4)
-      railties
     method_source (0.8.2)
     mime-types (2.6.1)
     mimemagic (0.3.0)
@@ -221,7 +221,7 @@ DEPENDENCIES
   devise
   friendly_id
   jquery-rails
-  masonry-rails
+  ledermann-rails-settings
   paperclip (~> 4.3)
   pry
   rails (= 4.2.3)

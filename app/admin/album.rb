@@ -1,5 +1,5 @@
 ActiveAdmin.register Album do
-  permit_params :name, :description, :tag_list, :file
+  permit_params :name, :description, :tag_list, :file, :background_color
   
   sortable
   config.sort_order = 'position_asc'
@@ -48,10 +48,9 @@ ActiveAdmin.register Album do
             url: autocomplete_tags_path },
           class: 'tagselect'
         }
-
-
+      
+      f.input :background_color, input_html: { class: 'minicolors', value: album.settings(:base).background_color }
     end
-
     f.actions
   end
 end
