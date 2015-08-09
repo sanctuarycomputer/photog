@@ -109,7 +109,7 @@ body.active_admin .select2-container {
   font-size: 2.2em;
   font-family: 'Karla', Arial, sans-serif;
 
-  ul.select2-choices {
+  ul.select2-choices, .select2-choice {
     padding: 16px 18px 16px;
     border-radius: 3px;
     border: 1px solid #c9d0d6;

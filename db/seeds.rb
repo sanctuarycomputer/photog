@@ -100,3 +100,54 @@ AdminUser.create({
   email: 'spree@example.com',
   password: 'spree123'
 })
+
+# Seed Pages
+album = Album.create({
+  name: "Homepage Images"
+})
+
+Image.create({
+  file: File.new("#{Rails.root}/public/seed_images/home_1.jpg"),
+  album: album
+})
+
+Image.create({
+  file: File.new("#{Rails.root}/public/seed_images/home_2.jpg"),
+  album: album
+})
+
+Image.create({
+  file: File.new("#{Rails.root}/public/seed_images/home_3.jpg"),
+  album: album
+})
+
+Image.create({
+  file: File.new("#{Rails.root}/public/seed_images/home_4.jpg"),
+  album: album
+})
+
+Page.create({
+  name: 'Homepage',
+  title: 'Jaime Johnson',
+  copy: 'Photographer',
+  album: album
+})
+
+# About Page
+album = Album.create({
+  name: "About Page Images"
+})
+
+Image.create({
+  file: File.new("#{Rails.root}/public/seed_images/logo.jpg"),
+  album: album
+})
+
+Page.create({
+  name: 'About',
+  title: 'About Jaime Johnson',
+  copy: 'Lorem Ipsum',
+  album: album
+})
+
+
