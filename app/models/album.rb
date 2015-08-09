@@ -1,4 +1,12 @@
 class Album < ActiveRecord::Base
+
+  # Background Color 
+  attr_accessor :background_color
+  has_settings :base
+  before_save -> {
+    settings(:base).background_color = background_color
+  }
+
   extend FriendlyId
   friendly_id :name, use: [:slugged, :finders]
 
@@ -15,6 +23,7 @@ class Album < ActiveRecord::Base
   validates_attachment_content_type :file, :content_type => /\Aimage\/.*\Z/
 
   has_one :page
+
 
   def cover_image
     if file.exists? || images.empty?

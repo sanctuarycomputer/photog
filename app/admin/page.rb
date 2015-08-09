@@ -1,5 +1,5 @@
 ActiveAdmin.register Page do
-  permit_params :name, :copy, :album_id, :title
+  permit_params :name, :copy, :album_id, :title, :background_color
 
   index do
     column :name
@@ -31,6 +31,9 @@ ActiveAdmin.register Page do
                          as: :select, 
                          collection: Album.all.map{|a| ["#{a.name}", a.id]}, 
                          input_html: { class: 'standardselect' }
+
+
+      f.input :background_color, input_html: { class: 'minicolors', value: page.settings(:base).background_color }
     end
 
     f.actions

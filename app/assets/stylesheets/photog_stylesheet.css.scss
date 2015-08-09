@@ -3,6 +3,19 @@ html, body, div, span,  h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, em, img, 
   font-family: 'Karla', Arial, sans-serif;
 }
 
+.minicolors-theme-default .minicolors-input {
+  height: 76px;
+  padding-left: 75px;
+}
+
+.minicolors-theme-default .minicolors-swatch {
+  top: 14px;
+  left: 15px;
+  width: 48px;
+  height: 48px; 
+  border: none;
+}
+
 .button_overrides {
   font-family: 'Karla', Arial, sans-serif;
   border-radius: 2px;
@@ -152,7 +165,7 @@ body.active_admin .select2-container {
   box-shadow: none;
 }
 
-.formtastic.image, .formtastic.album {
+.formtastic.image, .formtastic.album, .formtastic.page {
   fieldset.actions {
     ol {
       float: right;
