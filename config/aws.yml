@@ -1,0 +1,11 @@
+development:
+  access_key_id: id
+  secret_access_key: secret
+
+staging:
+  access_key_id: <%= ENV['JAIME_JOHNSON_AWS_ACCESS_KEY_ID'] %>
+  secret_access_key: <%= ENV['JAIME_JOHNSON_AWS_SECRET_ACCESS_KEY'] %>
+
+production:
+  access_key_id: <%= ENV['JAIME_JOHNSON_AWS_ACCESS_KEY_ID'] %>
+  secret_access_key: <%= ENV['JAIME_JOHNSON_AWS_SECRET_ACCESS_KEY'] %>

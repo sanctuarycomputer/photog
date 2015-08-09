@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150809162641) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "admin_users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -28,8 +31,8 @@ ActiveRecord::Schema.define(version: 20150809162641) do
     t.datetime "updated_at"
   end
 
-  add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
-  add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
+  add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "albums", force: :cascade do |t|
     t.string   "name"
@@ -44,7 +47,7 @@ ActiveRecord::Schema.define(version: 20150809162641) do
     t.datetime "file_updated_at"
   end
 
-  add_index "albums", ["slug"], name: "index_albums_on_slug"
+  add_index "albums", ["slug"], name: "index_albums_on_slug", using: :btree
 
   create_table "images", force: :cascade do |t|
     t.string   "caption"
@@ -58,7 +61,7 @@ ActiveRecord::Schema.define(version: 20150809162641) do
     t.integer  "position"
   end
 
-  add_index "images", ["album_id"], name: "index_images_on_album_id"
+  add_index "images", ["album_id"], name: "index_images_on_album_id", using: :btree
 
   create_table "pages", force: :cascade do |t|
     t.string   "name"
@@ -70,7 +73,7 @@ ActiveRecord::Schema.define(version: 20150809162641) do
     t.string   "slug"
   end
 
-  add_index "pages", ["album_id"], name: "index_pages_on_album_id"
+  add_index "pages", ["album_id"], name: "index_pages_on_album_id", using: :btree
 
   create_table "settings", force: :cascade do |t|
     t.string   "var",         null: false
@@ -81,7 +84,7 @@ ActiveRecord::Schema.define(version: 20150809162641) do
     t.datetime "updated_at"
   end
 
-  add_index "settings", ["target_type", "target_id", "var"], name: "index_settings_on_target_type_and_target_id_and_var", unique: true
+  add_index "settings", ["target_type", "target_id", "var"], name: "index_settings_on_target_type_and_target_id_and_var", unique: true, using: :btree
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
@@ -93,14 +96,14 @@ ActiveRecord::Schema.define(version: 20150809162641) do
     t.datetime "created_at"
   end
 
-  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
-  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
 
   create_table "tags", force: :cascade do |t|
     t.string  "name"
     t.integer "taggings_count", default: 0
   end
 
-  add_index "tags", ["name"], name: "index_tags_on_name", unique: true
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
 end
