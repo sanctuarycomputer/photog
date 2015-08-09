@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150808195012) do
+ActiveRecord::Schema.define(version: 20150809154308) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -59,6 +59,18 @@ ActiveRecord::Schema.define(version: 20150808195012) do
   end
 
   add_index "images", ["album_id"], name: "index_images_on_album_id"
+
+  create_table "pages", force: :cascade do |t|
+    t.string   "name"
+    t.string   "copy"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "album_id"
+    t.string   "title"
+    t.string   "slug"
+  end
+
+  add_index "pages", ["album_id"], name: "index_pages_on_album_id"
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"

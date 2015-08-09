@@ -17,7 +17,7 @@ ActiveAdmin.register Album do
 
   show do
     div do 
-      image_tag(album.file.url(:thumb))
+      image_tag(album.cover_image.url(:thumb))
     end
     para link_to "Edit Album Images", admin_album_images_path(album)
     para link_to "Edit Album Details", edit_admin_album_path(album)
@@ -48,6 +48,7 @@ ActiveAdmin.register Album do
             url: autocomplete_tags_path },
           class: 'tagselect'
         }
+
 
     end
 

@@ -9,11 +9,12 @@ class Album < ActiveRecord::Base
   has_many :images, -> { order(position: :asc) }
 
   has_attached_file :file, :styles => { 
-    :medium => "300x300>", 
     :thumb => "x300>" 
-  }, :default_url => "/images/:style/missing.png"
+  }, :default_url => "/images/missing.jpg"
 
   validates_attachment_content_type :file, :content_type => /\Aimage\/.*\Z/
+
+  has_one :page
 
   def cover_image
     if file.exists? || images.empty?
