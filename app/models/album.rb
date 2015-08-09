@@ -14,5 +14,13 @@ class Album < ActiveRecord::Base
   }, :default_url => "/images/:style/missing.png"
 
   validates_attachment_content_type :file, :content_type => /\Aimage\/.*\Z/
-  validates_attachment_presence :file
+
+  def cover_image
+    if file.exists? || images.empty?
+      file
+    else
+      images.first.file
+    end
+  end
+
 end
