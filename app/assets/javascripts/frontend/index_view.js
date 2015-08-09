@@ -2,9 +2,11 @@ window.Photog = window.Photog || {};
 
 window.Photog.indexView = {
   init: function() {
-    this.initGrid(); 
+    console.log('hi')
+    this.initGrid();
+    this.checkScroll();
   },
-  
+
   /*
    * Init Isotope
    */
@@ -17,6 +19,22 @@ window.Photog.indexView = {
           columnWidth: '.grid-sizer'
         }
       });
+    });
+  },
+
+  checkScroll: function(){
+    var lastScrollTop = 0;
+    var windowHeight = $(window).height()
+    $(window).on("scroll", function(event){
+       var st = $(this).scrollTop();
+       if (st > lastScrollTop){
+          if(lastScrollTop === 0){
+            $('body').scrollTop(windowHeight)
+          }
+       } else {
+          console.log('up')
+       }
+       lastScrollTop = st;
     });
   }
 }

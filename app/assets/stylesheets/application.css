@@ -1,6 +1,8 @@
 /*
  *= require_self
+ *= require_tree ./frontend
  */
+
 
 
 /* clear fix */
@@ -23,4 +25,8 @@
 .grid-item img {
   width: 90%;
   margin: 5%;
+}
+
+body {
+  margin: 0;
 }
