@@ -1,9 +1,29 @@
 <div id='content' class="album">
-  <%= @album.name %>
 
-  <% @album.images.each do |image| %>
-    <div class='image'>
-      <%= image_tag image.file.url(:original) %>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <% @album.images.each do |image| %>
+        <div class='swiper-slide'>
+          <%= image_tag image.file.url(:original), class: 'swiper-lazy' %>
+          <div class="swiper-lazy-preloader"></div>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+    
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+
+  <footer>
+    <div class='page-count'>
+      <span>1</span>
+      / <%= @album.images.count %>  
+    </div>
+    <div class='album-name'>
+      <%= @album.name %>  
+    </div>
+    <div class='next-album'>
+      <%= link_to 'Next Album', album_path(@next_album) %>
+    </div>
+  </footer>
 </div>

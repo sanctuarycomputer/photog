@@ -1,4 +1,5 @@
 class Album < ActiveRecord::Base
+  scope :published, -> { where(published: true).order('position asc') }
 
   # Background Color 
   attr_accessor :background_color
