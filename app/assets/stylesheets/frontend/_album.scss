@@ -1,0 +1,42 @@
+#content.album {
+  height: 100vh;
+  
+  .swiper-container {
+    height: 80vh;
+    padding: 10vh 0px; 
+  }
+  .swiper-slide {
+    text-align: center; 
+    img {
+      max-height: 100%;
+      max-width: 70%;
+      width: auto;  
+      top: 50%;
+      position: relative;
+      transform: translateY(-50%);
+    }
+  }
+
+  footer {
+    z-index: 1;
+    text-align: center;
+    height: 5vh;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    .page-count {
+      display: inline-block;
+      float: left;       
+      padding-left: 20px;
+    }
+    .album-name {
+      display: inline-block; 
+    }
+    .next-album {
+      display: inline-block;
+      float: right;       
+      padding-right: 20px;
+    }
+  }
+}

@@ -1,7 +1,9 @@
 /*
+ *= require normalize
  *= require_self
+ *= require_tree ./frontend
+ *= require swiper.min
  */
-
 
 /* clear fix */
 .grid:after {

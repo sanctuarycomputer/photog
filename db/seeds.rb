@@ -1,6 +1,7 @@
 # Seed Albums
 album = Album.create({
-  name: "Landscape / Atmosphere"
+  name: "Landscape / Atmosphere",
+  published: true
 })
 
 Image.create({
@@ -19,7 +20,8 @@ Image.create({
 })
 
 album = Album.create({
-  name: "Vibes"
+  name: "Vibes",
+  published: true
 })
 
 Image.create({
@@ -38,7 +40,8 @@ Image.create({
 })
 
 album = Album.create({
-  name: "Locations"
+  name: "Locations",
+  published: true
 })
 
 Image.create({
@@ -58,7 +61,8 @@ Image.create({
 
 
 album = Album.create({
-  name: "Remote"
+  name: "Remote",
+  published: true
 })
 
 Image.create({
@@ -77,7 +81,8 @@ Image.create({
 })
 
 album = Album.create({
-  name: "Local"
+  name: "Local",
+  published: true
 })
 
 Image.create({

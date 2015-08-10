@@ -6,9 +6,7 @@
     <div class="grid-sizer"></div>
     <% @albums.each do |album| %>
       <%= link_to album_path(album), class: "grid-item" do %>
-
         <%= image_tag album.cover_image.url(:thumb) %>
-
       <% end %>
     <% end %>
   </div>
