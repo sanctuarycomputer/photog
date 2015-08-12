@@ -1,11 +1,18 @@
-<div id='content' class="index">
-  <%= link_to "About", about_path %>
-  <h1>Homepage</h1>
+<div id='content' class="index" style="background-color: <%= @page.settings(:base).background_color %>">
+  <header style="background-image: url(<%= @image.file(:original) %>)">
+    <div class="header-content text-center vertical-center">
+      <h1><%= @page.title %></h1>
+      <h2><%= @page.copy %></h2>
+    </div>
+  </header>
+
+  <%= render "shared/index_nav" %>
 
   <div class="grid">
     <div class="grid-sizer"></div>
     <% @albums.each do |album| %>
       <%= link_to album_path(album), class: "grid-item" do %>
+        <div class="overlay"></div>
         <%= image_tag album.cover_image.url(:thumb) %>
       <% end %>
     <% end %>

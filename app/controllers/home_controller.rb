@@ -2,6 +2,7 @@ class HomeController < ApplicationController
   def index
     @albums = Album.published
     @page = Page.find 'homepage'
+    @image = @page.album.images.sample
   end
   def about
     @page = Page.find 'about'

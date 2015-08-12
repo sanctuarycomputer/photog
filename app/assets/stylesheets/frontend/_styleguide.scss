@@ -1,0 +1,70 @@
+@import 'global';
+
+a {
+  text-decoration: none;
+  color: $black; 
+  &:visited {
+    text-decoration: none;
+    color: $black; 
+  }
+}
+
+h1 {
+  @include serif;
+}
+
+h2 {
+  @include serif;
+}
+
+h6 {
+  font-size: 1rem;
+  line-height: 1.8;
+  @include sans-serif;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+  height: 70px;
+  text-align: center;
+  padding-top: 25px;
+  font-size: 1.2em;
+  z-index: 2;
+  @include serif;
+
+  &.index {
+    border-bottom: 1px solid $black;
+    position: relative;
+    .filter-work {
+      position: absolute;
+      left: $standard-bumper; 
+      @include sans-serif;
+    }
+    .about-link {
+      position: absolute;
+      right: $standard-bumper; 
+      @include sans-serif;
+    } 
+  }
+
+  .exit {
+    position: absolute;
+    right: $standard-bumper;
+    width: 30px;
+    top: $standard-bumper;
+
+    img {
+      width: 100%;  
+    }
+  }
+}
+
+#content {
+  opacity: 0;
+  transition: opacity 1s ease-out;
+
+  &.loaded {
+    opacity: 1;
+  }
+}
