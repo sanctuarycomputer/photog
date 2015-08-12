@@ -1,0 +1,24 @@
+@import 'global';
+
+#content.about {
+  height: 100vh;
+
+  .about-content {
+    padding: 40px;
+    width: 100%;
+    
+    @media #{$medium-up} {
+      width: 60%;
+    }
+    
+    @media #{$large-up} {
+      width: 40%;
+    }
+
+    margin: auto;
+
+    img {
+      width: 160px; 
+    }
+  }
+}

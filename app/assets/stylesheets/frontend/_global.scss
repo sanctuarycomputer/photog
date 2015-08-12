@@ -1,0 +1,18 @@
+$standard-bumper: 20px;
+$black: #000;
+
+$medium-up: "all and (min-width: 650px)";
+$large-up: "all and (min-width: 1000px)";
+
+@mixin serif {
+  font-family: Georgia, sans-serif;
+}
+
+@mixin sans-serif {
+  font-family: helvetica;
+  font-weight: 100;
+  padding-top: 3px;
+  font-size: 0.8em;
+  letter-spacing: 1px;
+}
+

@@ -1,10 +1,12 @@
+@import 'global';
+
 #content.album {
   height: 100vh;
   
   .swiper-container {
-    height: 80vh;
-    padding: 10vh 0px; 
+    height: 100%;
   }
+
   .swiper-slide {
     text-align: center; 
     img {
@@ -27,16 +29,17 @@
 
     .page-count {
       display: inline-block;
-      float: left;       
-      padding-left: 20px;
+      position: absolute;
+      left: $standard-bumper;
     }
     .album-name {
       display: inline-block; 
+      font-family: Georgia;
     }
     .next-album {
       display: inline-block;
-      float: right;       
-      padding-right: 20px;
+      position: absolute;
+      right: $standard-bumper;
     }
   }
 }

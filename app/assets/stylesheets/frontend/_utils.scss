@@ -1,0 +1,9 @@
+.text-center {
+  text-align: center;
+}
+
+.vertical-center {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
