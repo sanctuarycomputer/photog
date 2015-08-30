@@ -53,11 +53,15 @@
       transition: opacity .4s ease-in-out;
     }
     .overlay-title {
+      margin: 0 auto;
       visibility: hidden;
       position: absolute;
-
       width: 100%;
+      padding: 0 15%;
       margin-top: 15px;
+      @include sans-serif;
+      font-weight: 300;
+      font-size: 18px;
     }
 
     &:hover {
