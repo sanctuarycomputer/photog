@@ -2,10 +2,10 @@
 
 a {
   text-decoration: none;
-  color: $black; 
+  color: $black;
   &:visited {
     text-decoration: none;
-    color: $black; 
+    color: $black;
   }
 }
 
@@ -34,18 +34,38 @@ nav {
   @include serif;
 
   &.index {
-    border-bottom: 1px solid $black;
-    position: relative;
+    color: white;
+    position: absolute;
     .filter-work {
       position: absolute;
-      left: $standard-bumper; 
+      left: $standard-bumper;
       @include sans-serif;
     }
     .about-link {
+      color: white;
       position: absolute;
-      right: $standard-bumper; 
+      right: $standard-bumper;
       @include sans-serif;
-    } 
+    }
+    &.down {
+      background-color: white;
+      color: $black;
+      top: -70px;
+      border-bottom: 1px solid $black;
+      .about-link {
+        color: $black;
+      }
+    }
+    &.scrolled {
+      top: 0;
+      position: fixed;
+      -webkit-transition: top 0.5s ease-in-out;
+      -moz-transition: top 0.5s ease-in-out;
+      -o-transition: top 0.5s ease-in-out;
+      -ms-transition: top 0.5s ease-in-out;
+      transition: top 0.5s ease-in-out;
+
+    }
   }
 
   .exit {
@@ -55,7 +75,7 @@ nav {
     top: $standard-bumper;
 
     img {
-      width: 100%;  
+      width: 100%;
     }
   }
 }

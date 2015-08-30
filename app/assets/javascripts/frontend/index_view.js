@@ -2,9 +2,10 @@ window.Photog = window.Photog || {};
 
 window.Photog.indexView = {
   init: function() {
-    this.initGrid(); 
+    this.initGrid();
+    this.initNav();
   },
-  
+
   /*
    * Init Isotope
    */
@@ -18,5 +19,20 @@ window.Photog.indexView = {
         }
       });
     });
+  },
+
+  initNav: function() {
+    var header = $('#content.index header');
+    var headerHeight = header.height();
+    var nav = $('nav.index');
+    var navHeight = nav.height();
+
+
+    $(document).on("scroll", function(ev){
+      nav.toggleClass("down", ($(window).scrollTop() > headerHeight));
+      nav.toggleClass("scrolled", ($(window).scrollTop() > headerHeight));
+    })
+
   }
+
 }
