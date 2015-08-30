@@ -20,10 +20,12 @@ gem 'select2-rails'
 gem 'acts-as-taggable-on', '~> 3.5.0'
 gem 'ledermann-rails-settings'
 
-
 group :development, :test do
   gem 'pry'
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
 
+group :staging, :production do 
+  gem 'rails_12factor'
+end
