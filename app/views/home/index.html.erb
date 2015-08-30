@@ -6,7 +6,14 @@
       <h2><%= @page.copy %></h2>
     </div>
   </header>
-
+  
+  <div class='view-toggle'>
+    <% if @photo_grid %>
+      <%= image_tag('album_view.svg') %>
+    <% else %>
+      <%= image_tag('image_view.svg') %>
+    <% end %>
+  </div>
 
   <div class="grid">
     <div class="grid-sizer"></div>
@@ -18,10 +25,13 @@
         <% end %>
       <% end %>
     <% end %>
-    <% @images.each do |image| %>
-      <%= link_to album_path(image.album), class: "grid-item" do %>
-        <div class="overlay"></div>
-        <%= image_tag image.file.url(:thumb) %>
+
+    <% 5.times do %>
+      <% @images.each do |image| %>
+        <%= link_to album_path(image.album, image: image.album.images.find_index(image)), class: "grid-item" do %>
+          <div class="overlay"></div>
+          <%= image_tag image.file.url(:thumb) %>
+        <% end %>
       <% end %>
     <% end %>
   </div>

@@ -128,25 +128,25 @@ album = Album.create({
 
 Image.create({
   file: File.new("#{Rails.root}/public/seed_images/home_1.jpg"),
-  visible: true,
+  visible: false,
   album: album
 })
 
 Image.create({
   file: File.new("#{Rails.root}/public/seed_images/home_2.jpg"),
-  visible: true,
+  visible: false,
   album: album
 })
 
 Image.create({
   file: File.new("#{Rails.root}/public/seed_images/home_3.jpg"),
-  visible: true,
+  visible: false,
   album: album
 })
 
 Image.create({
   file: File.new("#{Rails.root}/public/seed_images/home_4.jpg"),
-  visible: true,
+  visible: false,
   album: album
 })
 
@@ -164,7 +164,7 @@ album = Album.create({
 
 Image.create({
   file: File.new("#{Rails.root}/public/seed_images/logo.jpg"),
-  visible: true,
+  visible: false,
   album: album
 })
 

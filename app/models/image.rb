@@ -1,8 +1,6 @@
 class Image < ActiveRecord::Base
-  delegate :published, to: :album
-
   scope :visible, -> {
-    where(visible: true).select{ |i| i.published }
+    where(visible: true)
   }
 
   has_attached_file :file, :styles => { 

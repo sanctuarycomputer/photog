@@ -4,8 +4,10 @@ class HomeController < ApplicationController
 
     @albums = []
     @images = []
+    @photo_grid = false
 
     if params[:grid]
+      @photo_grid = true
       if params[:tagged]
         @images = Image.visible.tagged_with params[:tagged]
       else
