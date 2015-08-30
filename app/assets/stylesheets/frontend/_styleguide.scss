@@ -64,7 +64,9 @@ nav {
       -o-transition: top 0.5s ease-in-out;
       -ms-transition: top 0.5s ease-in-out;
       transition: top 0.5s ease-in-out;
-
+      #filters .filter-work:after {
+        background-image: image-url('arrow.svg');
+      }
     }
     #filters {
       position: absolute;
@@ -88,7 +90,7 @@ nav {
           height: 20px;
           transform: rotate(90deg);
           margin-left: 10px;
-          background-image: image-url('arrow.svg');
+          background-image: image-url('white-arrow.svg');
           transition: $mid-transition transform;
         }
       }
