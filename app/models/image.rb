@@ -1,4 +1,8 @@
 class Image < ActiveRecord::Base
+  scope :visible, -> {
+    where(visible: true)
+  }
+
   has_attached_file :file, :styles => { 
     :thumb => "x300>" 
   }, :default_url => "/images/missing.jpg"

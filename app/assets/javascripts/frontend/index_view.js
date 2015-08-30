@@ -5,6 +5,19 @@ window.Photog.indexView = {
     this.initGrid();
     this.initNav();
     this.initTags();
+    this.initViewToggle();
+  },
+
+  initViewToggle: function() {
+    $('.view-toggle').on('click', function() {
+      if (this.getParameterByName('grid').length) {
+        var newUrl = this.removeURLParameter(window.location.href, 'grid');
+        window.location.href = newUrl;
+      } else {
+        var newUrl = this.updateQueryStringParameter(window.location.href, 'grid', 'photos');
+        window.location.href = newUrl;
+      }
+    }.bind(this));
   },
 
   initTags: function() {
@@ -16,6 +29,37 @@ window.Photog.indexView = {
     if (activeFilter) {
       $('#filters').addClass('active');
       $('#filters').find('.tag:contains('+activeFilter+')').addClass('active');
+    }
+  },
+
+  removeURLParameter: function(url, parameter) {
+    var urlparts= url.split('?');   
+    if (urlparts.length>=2) {
+
+      var prefix= encodeURIComponent(parameter)+'=';
+      var pars= urlparts[1].split(/[&;]/g);
+
+      for (var i= pars.length; i-- > 0;) {    
+        if (pars[i].lastIndexOf(prefix, 0) !== -1) {  
+          pars.splice(i, 1);
+        }
+      }
+
+      url= urlparts[0]+'?'+pars.join('&');
+      return url;
+    } else {
+      return url;
+    }
+  },
+
+  updateQueryStringParameter: function(uri, key, value) {
+    var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
+    var separator = uri.indexOf('?') !== -1 ? "&" : "?";
+    if (uri.match(re)) {
+      return uri.replace(re, '$1' + key + "=" + value + '$2');
+    }
+    else {
+      return uri + separator + key + "=" + value;
     }
   },
 

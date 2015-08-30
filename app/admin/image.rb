@@ -1,6 +1,6 @@
 ActiveAdmin.register Image do
   belongs_to :album
-  permit_params :caption, :file, :tag_list
+  permit_params :caption, :file, :tag_list, :visible
 
   sortable
   config.sort_order = 'position_asc'
@@ -9,6 +9,7 @@ ActiveAdmin.register Image do
   index do
     sortable_handle_column
     selectable_column
+    column :visible
     column "Thumbnail" do |image|
       image_tag(image.file.url(:thumb))
     end
@@ -30,6 +31,11 @@ ActiveAdmin.register Image do
             url: autocomplete_tags_path },
           class: 'tagselect'
         }
+
+      unless f.object.id
+        f.object.visible = true
+      end
+      f.input :visible, as: :boolean
     end
     f.actions
   end

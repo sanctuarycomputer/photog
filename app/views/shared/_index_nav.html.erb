@@ -1,15 +1,17 @@
 <nav class="index">
+  
+  <% if @tags.length > 0 %>
+    <div id='filters' class="clearfix">
+      <span class="filter-work">Filter Work</span>
 
-  <div id='filters' class="clearfix">
-    <span class="filter-work">Filter Work</span>
+      <% @tags.each do |tag| %>
+        <a class="tag" href=".?tagged=<%= tag.name %>">
+          <%= tag.name %>
+        </a>
+      <% end %>
+    </div>
+  <% end %>
 
-    <% @tags.each do |tag| %>
-      <a class="tag" href=".?tagged=<%= tag.name %>">
-        <%= tag.name %>
-      </a>
-    <% end %>
-  </div>
-
-  Jaime Johnson
+  <span id="logo">Jaime Johnson</span>
   <%= link_to "About", about_path, class: 'about-link' %>
 </nav>

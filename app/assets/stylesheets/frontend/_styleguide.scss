@@ -47,6 +47,9 @@ nav {
       right: $standard-bumper;
       @include sans-serif;
     }
+    #logo {
+      opacity: 0; 
+    }
     &.down {
       background-color: white;
       color: $black;
@@ -59,13 +62,20 @@ nav {
     &.scrolled {
       top: 0;
       position: fixed;
-      -webkit-transition: top 0.5s ease-in-out;
-      -moz-transition: top 0.5s ease-in-out;
-      -o-transition: top 0.5s ease-in-out;
-      -ms-transition: top 0.5s ease-in-out;
       transition: top 0.5s ease-in-out;
-      #filters .filter-work:after {
-        background-image: image-url('arrow.svg');
+
+      #logo {
+        transition: opacity $mid-transition;
+        opacity: 1;
+      }
+
+      #filters {
+        .tag {
+          color: $black; 
+        } 
+        .filter-work:after {
+          background-image: image-url('arrow.svg');
+        }
       }
     }
     #filters {
@@ -73,7 +83,6 @@ nav {
       display: none;
       @media #{$large-up} {
         display: block;
-        width: 110px;
       }
 
       .filter-work {
@@ -97,6 +106,7 @@ nav {
 
       .tag {
         @include sans-serif;
+        color: white;
         left: $standard-bumper;
         opacity: 0;
         pointer-events: none;

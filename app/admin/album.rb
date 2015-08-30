@@ -1,5 +1,5 @@
 ActiveAdmin.register Album do
-  permit_params :name, :description, :tag_list, :file, :background_color
+  permit_params :name, :description, :tag_list, :file, :background_color, :published
   
   sortable
   config.sort_order = 'position_asc'
@@ -9,6 +9,7 @@ ActiveAdmin.register Album do
     sortable_handle_column
     selectable_column
     column :name
+    column :published
     column "Images" do |album|
       album.images.count 
     end
@@ -50,6 +51,7 @@ ActiveAdmin.register Album do
         }
       
       f.input :background_color, input_html: { class: 'minicolors', value: album.settings(:base).background_color }
+      f.input :published, as: :boolean
     end
     f.actions
   end

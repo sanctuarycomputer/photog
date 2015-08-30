@@ -2,14 +2,27 @@ class HomeController < ApplicationController
   def index
     setup_filters
 
+    @albums = []
+    @images = []
+    @photo_grid = false
+
+    if params[:grid]
+      @photo_grid = true
+      if params[:tagged]
+        @images = Image.visible.tagged_with params[:tagged]
+      else
+        @images = Image.visible
+      end
+    else
+      if params[:tagged]
+        @albums = Album.published.tagged_with params[:tagged]
+      else
+        @albums = Album.published
+      end
+    end
+    
     @page = Page.find 'homepage'
     @image = @page.album.images.sample
-
-    if params[:tagged]
-      @albums = Album.published.tagged_with params[:tagged]
-    else
-      @albums = Album.published
-    end
   end
   
   def about
