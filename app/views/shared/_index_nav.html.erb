@@ -1,5 +1,15 @@
 <nav class="index">
-  <span class="filter-work">Filter Work</span>
+
+  <div id='filters' class="clearfix">
+    <span class="filter-work">Filter Work</span>
+
+    <% @tags.each do |tag| %>
+      <a class="tag" href=".?tagged=<%= tag.name %>">
+        <%= tag.name %>
+      </a>
+    <% end %>
+  </div>
+
   Jaime Johnson
   <%= link_to "About", about_path, class: 'about-link' %>
 </nav>
