@@ -20,9 +20,10 @@
     div.header-content {
       color: white; 
     }
-
   }
-
+  .grid {
+    margin-top: $standard-bumper;
+  }
   /* clear fix */
   .grid:after {
     content: '';
