@@ -16,5 +16,12 @@
         <%= image_tag album.cover_image.url(:thumb) %>
       <% end %>
     <% end %>
+    
+    <% @images.each do |image| %>
+      <%= link_to album_path(image.album), class: "grid-item" do %>
+        <div class="overlay"></div>
+        <%= image_tag image.file.url(:thumb) %>
+      <% end %>
+    <% end %>
   </div>
 </div>

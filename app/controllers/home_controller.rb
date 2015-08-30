@@ -1,12 +1,22 @@
 class HomeController < ApplicationController
   def index
-    @albums = Album.published
+    @albums = []
+    @images = []
+
+    if params[:grid]
+      @images = Image.visible
+    else
+      @albums = Album.published
+    end
+    
     @page = Page.find 'homepage'
     @image = @page.album.images.sample
   end
+
   def about
     @page = Page.find 'about'
   end
+  
   def album
     @albums = Album.published
     @album = Album.find params[:id]
