@@ -2,10 +2,10 @@
 
 a {
   text-decoration: none;
-  color: $black; 
+  color: $black;
   &:visited {
     text-decoration: none;
-    color: $black; 
+    color: $black;
   }
 }
 
@@ -34,24 +34,52 @@ nav {
   @include serif;
 
   &.index {
-    border-bottom: 1px solid $black;
-    position: relative;
-    .about-link {
+    color: white;
+    position: absolute;
+    .filter-work {
       position: absolute;
-      right: $standard-bumper; 
+      left: $standard-bumper;
       @include sans-serif;
-    } 
+    }
+    .about-link {
+      color: white;
+      position: absolute;
+      right: $standard-bumper;
+      @include sans-serif;
+    }
+    &.down {
+      background-color: white;
+      color: $black;
+      top: -70px;
+      border-bottom: 1px solid $black;
+      .about-link {
+        color: $black;
+      }
+    }
+    &.scrolled {
+      top: 0;
+      position: fixed;
+      -webkit-transition: top 0.5s ease-in-out;
+      -moz-transition: top 0.5s ease-in-out;
+      -o-transition: top 0.5s ease-in-out;
+      -ms-transition: top 0.5s ease-in-out;
+      transition: top 0.5s ease-in-out;
+      #filters .filter-work:after {
+        background-image: image-url('arrow.svg');
+      }
+    }
     #filters {
       position: absolute;
       display: none;
       @media #{$large-up} {
         display: block;
+        width: 110px;
       }
 
       .filter-work {
         cursor: pointer;
         position: absolute;
-        left: $standard-bumper; 
+        left: $standard-bumper;
         @include sans-serif;
 
         &:after {
@@ -62,7 +90,7 @@ nav {
           height: 20px;
           transform: rotate(90deg);
           margin-left: 10px;
-          background-image: image-url('arrow.svg');       
+          background-image: image-url('white-arrow.svg');
           transition: $mid-transition transform;
         }
       }
@@ -92,13 +120,13 @@ nav {
         .filter-work {
           &:after {
             transform: rotate(0deg);
-          } 
+          }
         }
         .tag {
           transform: translateY(0px);
           opacity: 1;
           pointer-events: auto;
-        } 
+        }
       }
     }
   }
@@ -110,7 +138,7 @@ nav {
     top: $standard-bumper;
 
     img {
-      width: 100%;  
+      width: 100%;
     }
   }
 }

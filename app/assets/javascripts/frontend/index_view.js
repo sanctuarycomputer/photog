@@ -2,8 +2,9 @@ window.Photog = window.Photog || {};
 
 window.Photog.indexView = {
   init: function() {
-    this.initGrid(); 
-    this.initTags(); 
+    this.initGrid();
+    this.initNav();
+    this.initTags();
   },
 
   initTags: function() {
@@ -24,7 +25,7 @@ window.Photog.indexView = {
         results = regex.exec(location.search);
     return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
   },
-  
+
   /*
    * Init Isotope
    */
@@ -38,5 +39,20 @@ window.Photog.indexView = {
         }
       });
     });
+  },
+
+  initNav: function() {
+    var header = $('#content.index header');
+    var headerHeight = header.height();
+    var nav = $('nav.index');
+    var navHeight = nav.height();
+
+
+    $(document).on("scroll", function(ev){
+      nav.toggleClass("down", ($(window).scrollTop() > headerHeight));
+      nav.toggleClass("scrolled", ($(window).scrollTop() > headerHeight));
+    })
+
   }
+
 }
