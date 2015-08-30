@@ -32,13 +32,17 @@
       <% end %>
     <% end %>
 
+
+
     <% 5.times do %>
       <% @images.each do |image| %>
         <%= link_to album_path(image.album, image: image.album.images.find_index(image)), class: "grid-item" do %>
-          <div class="overlay"></div>
-          <%= image_tag image.file.url(:thumb) %>
+          <div class="overlay">
+            <%= image_tag image.file.url(:thumb) %>
+          </div>
         <% end %>
       <% end %>
     <% end %>
+
   </div>
 </div>
