@@ -36,16 +36,71 @@ nav {
   &.index {
     border-bottom: 1px solid $black;
     position: relative;
-    .filter-work {
-      position: absolute;
-      left: $standard-bumper; 
-      @include sans-serif;
-    }
     .about-link {
       position: absolute;
       right: $standard-bumper; 
       @include sans-serif;
     } 
+    #filters {
+      position: absolute;
+      display: none;
+      @media #{$large-up} {
+        display: block;
+      }
+
+      .filter-work {
+        cursor: pointer;
+        position: absolute;
+        left: $standard-bumper; 
+        @include sans-serif;
+
+        &:after {
+          content: "";
+          width: 10px;
+          position: absolute;
+          background-size: 10px 20px;
+          height: 20px;
+          transform: rotate(90deg);
+          margin-left: 10px;
+          background-image: image-url('arrow.svg');       
+          transition: $mid-transition transform;
+        }
+      }
+
+      .tag {
+        @include sans-serif;
+        left: $standard-bumper;
+        opacity: 0;
+        pointer-events: none;
+        transition: $mid-transition opacity, $mid-transition transform;
+        transform: translateY(4px);
+
+        &.active {
+          font-weight: 800;
+        }
+
+        &:hover {
+          font-weight: 800;
+        }
+
+        &:first-of-type {
+          margin-left: 135px;
+        }
+      }
+
+      &.active {
+        .filter-work {
+          &:after {
+            transform: rotate(0deg);
+          } 
+        }
+        .tag {
+          transform: translateY(0px);
+          opacity: 1;
+          pointer-events: auto;
+        } 
+      }
+    }
   }
 
   .exit {

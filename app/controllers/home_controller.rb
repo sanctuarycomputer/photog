@@ -1,12 +1,21 @@
 class HomeController < ApplicationController
   def index
-    @albums = Album.published
+    setup_filters
+
     @page = Page.find 'homepage'
     @image = @page.album.images.sample
+
+    if params[:tagged]
+      @albums = Album.published.tagged_with params[:tagged]
+    else
+      @albums = Album.published
+    end
   end
+  
   def about
     @page = Page.find 'about'
   end
+
   def album
     @albums = Album.published
     @album = Album.find params[:id]
@@ -17,5 +26,10 @@ class HomeController < ApplicationController
     end
 
     @next_album = @albums[index]
+  end
+  
+  private
+  def setup_filters
+    @tags = ActsAsTaggableOn::Tag.all
   end
 end
