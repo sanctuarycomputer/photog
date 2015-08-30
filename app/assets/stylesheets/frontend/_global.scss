@@ -4,6 +4,8 @@ $black: #000;
 $medium-up: "all and (min-width: 650px)";
 $large-up: "all and (min-width: 1000px)";
 
+$mid-transition: 600ms;
+
 @mixin serif {
   font-family: Georgia, sans-serif;
 }

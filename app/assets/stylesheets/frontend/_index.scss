@@ -36,7 +36,7 @@
     @media #{$medium-up} {
       width: 50%;
     }
-    
+
     @media #{$large-up} {
       width: 25%;
     }
@@ -49,21 +49,29 @@
     .overlay {
       width: 90%;
       margin: 5%;
+      position: relative;
+      transition: opacity .4s ease-in-out;
     }
     .overlay-title {
-      display: none;
+      visibility: hidden;
+      position: absolute;
+
+      width: 100%;
+      margin-top: 15px;
     }
 
     &:hover {
       .overlay {
-        background-color: black;
+        background-color: $black;
         opacity: 0.3;
       }
       .overlay-title {
         text-align: center;
-        position: absolute;
-        color: white;
-        display: initial;
+        color: $black;
+        visibility: initial;
+        margin-top: 0;
+        transition: margin .5s;
+
       }
     }
   }
