@@ -61,6 +61,7 @@ nav {
       }
     }
     &.scrolled {
+      z-index: 5;
       top: 0;
       position: fixed;
       transition: top 0.5s ease-in-out;
@@ -115,11 +116,11 @@ nav {
         transform: translateY(4px);
 
         &.active {
-          font-weight: 800;
+          text-decoration: underline
         }
 
         &:hover {
-          font-weight: 800;
+          text-decoration: underline
         }
 
         &:first-of-type {

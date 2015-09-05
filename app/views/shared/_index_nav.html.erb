@@ -1,13 +1,11 @@
 <nav class="index">
-  
+
   <% if @tags.length > 0 %>
     <div id='filters' class="clearfix">
       <span class="filter-work">Filter Work</span>
 
       <% @tags.each do |tag| %>
-        <a class="tag" href=".?tagged=<%= tag.name %>">
-          <%= tag.name %>
-        </a>
+        <a class="tag" href=".?tagged=<%= tag.name %>"><%= tag.name %></a>&nbsp;
       <% end %>
     </div>
   <% end %>
