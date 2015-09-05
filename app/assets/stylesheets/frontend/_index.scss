@@ -94,3 +94,20 @@
     display: block;
   }
 }
+
+.down-arrow{
+  bottom: 35px;
+  position: absolute;
+  left: 50%;
+  margin-left: -15px;
+  cursor: pointer;
+  &:after {
+    content: "";
+    width: 15px;
+    position: absolute;
+    background-size: 15px 30px;
+    height: 30px;
+    transform: rotate(90deg);
+    background-image: image-url('white-arrow.svg');
+  }
+}
