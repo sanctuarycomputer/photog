@@ -2,14 +2,17 @@
 
   <% if @tags.length > 0 %>
     <div id='filters' class="clearfix">
-      <span class="filter-work">Filter Work</span>
-
-      <% @tags.each do |tag| %>
-        <a class="tag" href=".?tagged=<%= tag.name %>"><%= tag.name %></a>&nbsp;
-      <% end %>
+      <div class="filter-work">WORK</div>
+      <div class="tags-container">
+        <% @tags.each do |tag| %>
+          <div class="tag">
+            <a href=".?tagged=<%= tag.name %>"><%=tag.name.upcase%></a>
+          </div>
+        <% end %>
+      </div>
     </div>
   <% end %>
 
   <span id="logo">Jaime Johnson</span>
-  <%= link_to "About", about_path, class: 'about-link' %>
+  <%= link_to "ABOUT", about_path, class: 'about-link' %>
 </nav>

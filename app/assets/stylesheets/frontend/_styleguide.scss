@@ -43,10 +43,14 @@ nav {
     }
     .about-link {
       @include sans-serif;
+      font-weight: 400;
       color: white;
       position: absolute;
       right: $standard-bumper;
       padding-top: 6px;
+      &:hover{
+        text-decoration: underline;
+      }
     }
     #logo {
       opacity: 0;
@@ -55,7 +59,6 @@ nav {
       background-color: white;
       color: $black;
       top: -50px;
-      //border-bottom: 1px solid $black;
       .about-link {
         color: $black;
       }
@@ -65,15 +68,32 @@ nav {
       top: 0;
       position: fixed;
       transition: top 0.5s ease-in-out;
-
       #logo {
         transition: opacity $mid-transition;
         opacity: 1;
+        display: inline-block;
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+        padding: 0 5px;
       }
 
       #filters {
+        .tags-container{
+          min-width: 100px;
+          margin-top: 38px;
+          transition: $mid-transition background-color;
+          background-color: rgba(255,255,255, 0);
+        }
+        &.active{
+          .tags-container{
+            background-color: rgba(255,255,255, 0.8);
+          }
+        }
         .tag {
           color: $black;
+          a{
+            color: $black;
+          }
         }
         .filter-work:after {
           background-image: image-url('arrow.svg');
@@ -82,57 +102,52 @@ nav {
     }
     #filters {
       position: absolute;
-      display: none;
-      @media #{$large-up} {
-        display: block;
-      }
-
+      display: block;
       .filter-work {
         @include sans-serif;
+        font-weight: 400;
         cursor: pointer;
         position: absolute;
         left: $standard-bumper;
         padding-top: 6px;
-        &:after {
-          content: "";
-          width: 10px;
-          position: absolute;
-          background-size: 10px 20px;
-          height: 20px;
-          transform: rotate(90deg);
-          margin-left: 10px;
-          background-image: image-url('white-arrow.svg');
-          transition: $mid-transition transform;
+        @media #{$medium-up}{
+          &:after {
+            content: "";
+            width: 10px;
+            position: absolute;
+            background-size: 10px 20px;
+            height: 20px;
+            transform: rotate(-90deg);
+            margin-left: 10px;
+            background-image: image-url('white-arrow.svg');
+            transition: $mid-transition transform;
+          }
         }
       }
 
       .tag {
         @include sans-serif;
-        color: white;
-        left: $standard-bumper;
+        padding-top: 10px;
+        text-align: left;
+        font-weight: 400;
         opacity: 0;
         pointer-events: none;
         transition: $mid-transition opacity, $mid-transition transform;
         transform: translateY(4px);
-
-        &.active {
-          text-decoration: underline
-        }
-
-        &:hover {
-          text-decoration: underline
-        }
-
-        &:first-of-type {
-          margin-left: 135px;
+        a{
+          color: white;
+          &.active {
+            text-decoration: underline
+          }
+          &:hover {
+            text-decoration: underline
+          }
         }
       }
 
       &.active {
-        .filter-work {
-          &:after {
-            transform: rotate(0deg);
-          }
+        .filter-work:after {
+            transform: rotate(90deg);
         }
         .tag {
           transform: translateY(0px);
@@ -147,12 +162,19 @@ nav {
     position: absolute;
     right: $standard-bumper;
     width: 30px;
-    top: $standard-bumper;
+    top: 10px;
 
     img {
       width: 100%;
     }
   }
+}
+
+.tags-container{
+  margin-top: 20px;
+  padding: 5px 20px 10px;
+  transition: 0 background-color;
+
 }
 
 #content {

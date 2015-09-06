@@ -16,12 +16,16 @@
     height: 100vh;
     background-size: cover;
     background-position: 50% 50%;
+    letter-spacing: 1px;
 
     h1 {
       margin: 0;
-      font-size: 7em;
+      font-size: 5em;
       font-weight: 100;
       letter-spacing: -3px;
+      @media #{$large-up} {
+        font-size: 7em;
+      }
     }
 
     h2 {
@@ -86,7 +90,7 @@
 
     &:hover {
       .overlay {
-        opacity: 0.75;
+        opacity: 0.45;
       }
       .overlay-title {
         z-index: 3;
