@@ -7,6 +7,9 @@ window.Photog.albumView = {
     this.initSwiper();
     this.caption = $('#caption');
     this._ensureCaptionUpToDate();
+
+    this.swiperNextButton = $('.swiper-button-next');
+    this.swiperPrevButton = $('.swiper-button-prev');
   },
 
   initPageCount: function() {
@@ -29,7 +32,7 @@ window.Photog.albumView = {
       preloadImages: false,
       lazyLoading: true,
       loop: true,
-      speed: 600,
+      speed: 300,
       runCallbacksOnInit: false,
       onSlideChangeEnd: this.slideDidChange.bind(this)
     }) 

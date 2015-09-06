@@ -39,7 +39,12 @@
     <% 5.times do %>
       <% @images.each do |image| %>
         <%= link_to album_path(image.album, image: image.album.images.find_index(image)), class: "grid-item" do %>
-          <div class="overlay">
+
+          <div class="img-container">
+            <div class="overlay">
+              <div class="overlay-title text-center vertical-center">
+              </div>
+            </div>
             <%= image_tag image.file.url(:thumb) %>
           </div>
         <% end %>
