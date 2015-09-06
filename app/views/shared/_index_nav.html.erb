@@ -2,11 +2,14 @@
 
   <% if @tags.length > 0 %>
     <div id='filters' class="clearfix">
-      <span class="filter-work">FILTER WORK</span>
-
-      <% @tags.each do |tag| %>
-        <a class="tag" href=".?tagged=<%= tag.name %>"><%= tag.name.upcase() %></a>&nbsp;
-      <% end %>
+      <div class="filter-work">WORK</div>
+      <div class="tags-container">
+        <% @tags.each do |tag| %>
+          <div class="tag">
+            <a href=".?tagged=<%= tag.name %>"><%=tag.name.upcase%></a>
+          </div>
+        <% end %>
+      </div>
     </div>
   <% end %>
 
