@@ -23,13 +23,13 @@ window.Photog.indexView = {
 
   initTags: function() {
     var activeFilter = this.getParameterByName('tagged');
-    $('#filters span').on('click', function() {
+    $('#filters .filter-work').on('click', function() {
       $(this.parentElement).toggleClass('active');
     });
 
     if (activeFilter) {
       $('#filters').addClass('active');
-      $('#filters').find('.tag:contains('+activeFilter+')').addClass('active');
+      $('#filters').find('.tag a:contains('+activeFilter.toUpperCase()+')').addClass('active');
     }
   },
 
@@ -100,7 +100,6 @@ window.Photog.indexView = {
     var headerHeight = header.height();
     var nav = $('nav.index');
     var navHeight = nav.height();
-
 
     $(document).on("scroll", function(ev){
       nav.toggleClass("down", ($(window).scrollTop() > headerHeight));
