@@ -5,26 +5,24 @@ class HomeController < ApplicationController
     @albums = []
     @images = []
     @photo_grid = false
+    @tagged = false
 
     if params[:grid]
       @photo_grid = true
       if params[:tagged]
+        @tagged = true
         @images = Image.visible.tagged_with params[:tagged]
       else
         @images = Image.visible
       end
     else
-      if params[:tagged]
-        @albums = Album.published.tagged_with params[:tagged]
-      else
-        @albums = Album.published
-      end
+      @albums = Album.published
     end
-    
+
     @page = Page.find 'homepage'
     @image = @page.album.images.sample
   end
-  
+
   def about
     @page = Page.find 'about'
   end

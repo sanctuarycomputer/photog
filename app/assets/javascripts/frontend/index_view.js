@@ -28,7 +28,6 @@ window.Photog.indexView = {
     });
 
     if (activeFilter) {
-      $('#filters').addClass('active');
       $('#filters').find('.tag a:contains('+activeFilter.toUpperCase()+')').addClass('active');
     }
   },
@@ -102,8 +101,10 @@ window.Photog.indexView = {
     var navHeight = nav.height();
 
     $(document).on("scroll", function(ev){
-      nav.toggleClass("down", ($(window).scrollTop() > headerHeight));
-      nav.toggleClass("scrolled", ($(window).scrollTop() > headerHeight));
+      if(header.length){
+        nav.toggleClass("down", ($(window).scrollTop() > headerHeight));
+        nav.toggleClass("scrolled", ($(window).scrollTop() > headerHeight));
+      }
     })
 
   }
