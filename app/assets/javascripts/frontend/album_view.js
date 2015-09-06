@@ -5,6 +5,8 @@ window.Photog.albumView = {
     console.log('Init Album View');
     this.initPageCount();
     this.initSwiper();
+    this.caption = $('#caption');
+    this._ensureCaptionUpToDate();
   },
 
   initPageCount: function() {
@@ -43,5 +45,11 @@ window.Photog.albumView = {
   slideDidChange: function(swiper) {
     swiper.fixLoop();
     this.countElem.text(swiper.activeIndex);
+    this._ensureCaptionUpToDate();
+  },
+
+  _ensureCaptionUpToDate: function() {
+    var newCaption = $('.swiper-slide-active').get(0).dataset.caption;
+    this.caption.text(newCaption);
   }
 }

@@ -22,24 +22,35 @@
   footer {
     z-index: 1;
     text-align: center;
-    height: 5vh;
+    height: 3vh;
     position: absolute;
     bottom: 0;
     width: 100%;
+    font-size: 1em;
 
     .page-count {
       display: inline-block;
       position: absolute;
       left: $standard-bumper;
+      @include sans-serif;
     }
-    .album-name {
+    #caption {
       display: inline-block; 
-      font-family: Georgia;
+      @include serif;
+      margin: -10px;
     }
     .next-album {
+      text-transform: uppercase;
+      @include sans-serif;
       display: inline-block;
       position: absolute;
       right: $standard-bumper;
+      border-bottom: 2px solid transparent; 
+      transition: all .4s ease-in-out;
+
+      &:hover {
+        border-bottom: 2px solid black; 
+      }
     }
   }
 }
