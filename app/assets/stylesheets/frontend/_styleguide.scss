@@ -163,3 +163,20 @@ nav {
     opacity: 1;
   }
 }
+
+.swiper-button-prev, .swiper-button-next{
+  width: 40px;
+  height: 60px;
+  background-size: 40px 60px;
+}
+
+.swiper-button-prev{
+  background-image: image-url('swiper-arrow.svg');
+  left: 15px;
+}
+
+.swiper-button-next{
+  background-image: image-url('swiper-arrow.svg') !important;
+  transform: rotate(180deg);
+  right: 15px;
+}

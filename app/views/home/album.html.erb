@@ -18,10 +18,7 @@
   <footer>
     <div class='page-count'>
       <span>1</span>
-      / <%= @album.images.count %>  
-    </div>
-    <div class='album-name'>
-      <%= @album.name %>  
+      / <%= @album.images.count %>
     </div>
     <div class='next-album'>
       <%= link_to 'Next Album', album_path(@next_album) %>
