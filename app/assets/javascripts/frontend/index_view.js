@@ -6,6 +6,7 @@ window.Photog.indexView = {
     this.initNav();
     this.initTags();
     this.initViewToggle();
+    this.scrollDown();
   },
 
   initViewToggle: function() {
@@ -30,6 +31,15 @@ window.Photog.indexView = {
       $('#filters').addClass('active');
       $('#filters').find('.tag:contains('+activeFilter+')').addClass('active');
     }
+  },
+
+  scrollDown: function(){
+    var headerHeight = $('#content.index header').height();
+    $('.down-arrow').on('click', function(){
+      $('html, body').animate({
+          scrollTop: headerHeight
+      }, 1500);
+    })
   },
 
   removeURLParameter: function(url, parameter) {
@@ -98,5 +108,4 @@ window.Photog.indexView = {
     })
 
   }
-
 }
