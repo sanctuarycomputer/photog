@@ -47,6 +47,9 @@ nav {
       position: absolute;
       right: $standard-bumper;
       padding-top: 6px;
+      &:hover{
+        text-decoration: underline;
+      }
     }
     #logo {
       opacity: 0;
@@ -124,7 +127,7 @@ nav {
         }
 
         &:first-of-type {
-          margin-left: 135px;
+          margin-left: 160px;
         }
       }
 
@@ -147,7 +150,7 @@ nav {
     position: absolute;
     right: $standard-bumper;
     width: 30px;
-    top: $standard-bumper;
+    top: 10px;
 
     img {
       width: 100%;
