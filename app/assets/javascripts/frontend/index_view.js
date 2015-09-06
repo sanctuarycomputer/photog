@@ -108,5 +108,4 @@ window.Photog.indexView = {
     })
 
   }
-
 }

@@ -21,12 +21,13 @@
     <% 5.times do %>
       <% @albums.each do |album| %>
         <%= link_to album_path(album), class: "grid-item" do %>
-          <div>
-            <div class="overlay-title text-center vertical-center">
-              <%= album.name %>
+
+          <div class="img-container">
+            <div class="overlay">
+              <div class="overlay-title text-center vertical-center">
+                <%= album.name %>
+              </div>
             </div>
-          </div>
-          <div class="overlay">
             <%= image_tag album.cover_image.url(:thumb) %>
           </div>
         <% end %>
