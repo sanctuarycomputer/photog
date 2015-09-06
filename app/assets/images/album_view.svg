@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="75px" height="75px" viewBox="0 0 75 75" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
     <!-- Generator: Sketch 3.3.3 (12072) - http://www.bohemiancoding.com/sketch -->
     <title>Artboard 1</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="Artboard-1" sketch:type="MSArtboardGroup" fill="#000000">
-            <g id="Group" sketch:type="MSLayerGroup" transform="translate(5.000000, 14.000000)">
-                <rect id="Rectangle-1-Copy-3" sketch:type="MSShapeGroup" x="9.7261328" y="0.726132803" width="45.5477344" height="45.5477344"></rect>
-                <rect id="Rectangle-1-Copy-4" sketch:type="MSShapeGroup" x="5" y="0.726132803" width="2" height="45.5477344"></rect>
-                <rect id="Rectangle-1-Copy-6" sketch:type="MSShapeGroup" x="62.7261328" y="0.726132803" width="2" height="45.5477344"></rect>
-                <rect id="Rectangle-1-Copy-5" sketch:type="MSShapeGroup" x="0.273867197" y="0.726132803" width="2" height="45.5477344"></rect>
-                <rect id="Rectangle-1-Copy-7" sketch:type="MSShapeGroup" x="58" y="0.726132803" width="2" height="45.5477344"></rect>
-            </g>
-        </g>
+        <rect id="Rectangle-path" fill="#000000" sketch:type="MSShapeGroup" x="1.00570855" y="11.0350394" width="47.8438406" height="4.71620917"></rect>
+        <rect id="Rectangle-path" fill="#000000" sketch:type="MSShapeGroup" x="1.00570855" y="22.9993174" width="47.8438406" height="4.71620917"></rect>
+        <rect id="Rectangle-path" fill="#000000" sketch:type="MSShapeGroup" x="1.00570855" y="35.0132397" width="47.8438406" height="4.71620917"></rect>
+        <g id="Artboard-1" sketch:type="MSArtboardGroup"></g>
     </g>
 </svg>

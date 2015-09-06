@@ -6,6 +6,7 @@
     padding: $standard-bumper;
     padding-bottom: 0;
     text-align: right;
+    width: 90px;
     img {
       width: 50px; 
     }
@@ -74,15 +75,17 @@
       transition: opacity .4s ease-in-out;
     }
     .overlay-title {
+      @include sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 6px;
+      font-weight: 300;
+      font-size: 1.2em;
       margin: 0 auto;
       opacity: 0;
       position: absolute;
       width: 100%;
       padding: 0 15%;
-      margin-top: 5px;
-      @include sans-serif;
-      font-weight: 200;
-      font-size: 18px;
+      margin-top: 10px;
     }
 
     &:hover {
@@ -95,7 +98,7 @@
         color: white;
         opacity: 1;
         margin-top: 0;
-        transition: margin opacity .4s;
+        transition: margin .4s, opacity .4s;
       }
     }
   }

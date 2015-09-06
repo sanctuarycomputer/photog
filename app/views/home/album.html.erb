@@ -4,7 +4,7 @@
   <div class="swiper-container">
     <div class="swiper-wrapper">
       <% @album.images.each do |image| %>
-        <div class='swiper-slide'>
+        <div class='swiper-slide' data-caption="<%= image.caption %>">
           <%= image_tag image.file.url(:original), class: 'swiper-lazy' %>
           <div class="swiper-lazy-preloader"></div>
         </div>
@@ -20,6 +20,9 @@
       <span>1</span>
       / <%= @album.images.count %>
     </div>
+    
+    <div id='caption'></div>
+
     <div class='next-album'>
       <%= link_to 'Next Story', album_path(@next_album) %>
     </div>

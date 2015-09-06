@@ -5,6 +5,11 @@ window.Photog.albumView = {
     console.log('Init Album View');
     this.initPageCount();
     this.initSwiper();
+    this.caption = $('#caption');
+    this._ensureCaptionUpToDate();
+
+    this.swiperNextButton = $('.swiper-button-next');
+    this.swiperPrevButton = $('.swiper-button-prev');
   },
 
   initPageCount: function() {
@@ -27,7 +32,7 @@ window.Photog.albumView = {
       preloadImages: false,
       lazyLoading: true,
       loop: true,
-      speed: 600,
+      speed: 300,
       runCallbacksOnInit: false,
       onSlideChangeEnd: this.slideDidChange.bind(this)
     }) 
@@ -43,5 +48,11 @@ window.Photog.albumView = {
   slideDidChange: function(swiper) {
     swiper.fixLoop();
     this.countElem.text(swiper.activeIndex);
+    this._ensureCaptionUpToDate();
+  },
+
+  _ensureCaptionUpToDate: function() {
+    var newCaption = $('.swiper-slide-active').get(0).dataset.caption;
+    this.caption.text(newCaption);
   }
 }
