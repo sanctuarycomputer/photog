@@ -1,4 +1,4 @@
-<nav class="index">
+<nav class="index <%= 'scrolled down tagged' if @tagged || @photo_grid %>">
 
   <% if @tags.length > 0 %>
     <div id='filters' class="clearfix">
@@ -6,13 +6,14 @@
       <div class="tags-container">
         <% @tags.each do |tag| %>
           <div class="tag">
-            <a href=".?tagged=<%= tag.name %>"><%=tag.name.upcase%></a>
+            <a href=".?tagged=<%= tag.name %>&grid=photos"><%=tag.name.upcase%></a>
           </div>
         <% end %>
       </div>
     </div>
   <% end %>
-
-  <span id="logo">Jaime Johnson</span>
+  <%= link_to root_path do %>
+    <span id="logo">Jaime Johnson</span>
+  <% end %>
   <%= link_to "ABOUT", about_path, class: 'about-link' %>
 </nav>

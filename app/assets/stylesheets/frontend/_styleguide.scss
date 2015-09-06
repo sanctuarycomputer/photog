@@ -68,6 +68,9 @@ nav {
       top: 0;
       position: fixed;
       transition: top 0.5s ease-in-out;
+      &.tagged{
+        position: relative;
+      }
       #logo {
         transition: opacity $mid-transition;
         opacity: 1;
@@ -174,7 +177,6 @@ nav {
   margin-top: 20px;
   padding: 5px 20px 10px;
   transition: 0 background-color;
-
 }
 
 #content {
