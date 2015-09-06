@@ -38,18 +38,8 @@ ActiveAdmin.register Album do
     f.inputs "Album Details" do
       f.input :file, as: :file, hint: image_tag(f.object.file.url(:thumb))
       f.input :name
-      f.input :description, as: :text, :input_html => { :rows => 6 } 
+      f.input :description, as: :text, :input_html => { :rows => 6 }
 
-      f.input :tag_list,
-        label: "Tags",
-        input_html: {
-          data: {
-            placeholder: "Enter tags",
-            saved: f.object.tags.map{|t| {id: t.name, name: t.name}}.to_json,
-            url: autocomplete_tags_path },
-          class: 'tagselect'
-        }
-      
       f.input :background_color, input_html: { class: 'minicolors', value: album.settings(:base).background_color }
       f.input :published, as: :boolean
     end
