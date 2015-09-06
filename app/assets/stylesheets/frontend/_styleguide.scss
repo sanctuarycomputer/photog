@@ -72,6 +72,10 @@ nav {
       #logo {
         transition: opacity $mid-transition;
         opacity: 1;
+        display: inline-block;
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+        padding: 0 5px;
       }
 
       #filters {
