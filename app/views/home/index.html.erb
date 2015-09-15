@@ -22,36 +22,30 @@
 
   <div class="grid">
     <div class="grid-sizer"></div>
-    <% 15.times do %>
-      <% @albums.each do |album| %>
-        <%= link_to album_path(album), class: "grid-item" do %>
+    <% @albums.each do |album| %>
+      <%= link_to album_path(album), class: "grid-item" do %>
 
-          <div class="img-container">
-            <div class="overlay">
-              <div class="overlay-title text-center vertical-center">
-                <%= album.name %>
-              </div>
+        <div class="img-container">
+          <div class="overlay">
+            <div class="overlay-title text-center vertical-center">
+              <%= album.name %>
             </div>
-            <%= image_tag album.cover_image.url(:thumb) %>
           </div>
-        <% end %>
+          <%= image_tag album.cover_image.url(:thumb) %>
+        </div>
       <% end %>
     <% end %>
 
+    <% @images.each do |image| %>
+      <%= link_to album_path(image.album, image: image.album.images.find_index(image)), class: "grid-item" do %>
 
-
-    <% 5.times do %>
-      <% @images.each do |image| %>
-        <%= link_to album_path(image.album, image: image.album.images.find_index(image)), class: "grid-item" do %>
-
-          <div class="img-container">
-            <div class="overlay">
-              <div class="overlay-title text-center vertical-center">
-              </div>
+        <div class="img-container">
+          <div class="overlay">
+            <div class="overlay-title text-center vertical-center">
             </div>
-            <%= image_tag image.file.url(:thumb) %>
           </div>
-        <% end %>
+          <%= image_tag image.file.url(:thumb) %>
+        </div>
       <% end %>
     <% end %>
 
