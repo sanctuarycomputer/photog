@@ -20,11 +20,13 @@
       <span>1</span>
       / <%= @album.images.count %>
     </div>
-    
+    <div class='previous-album'>
+      <%= link_to 'Previous Story', album_path(@previous_album.slug) %>
+    </div>
     <div id='caption'></div>
 
     <div class='next-album'>
-      <%= link_to 'Next Story', album_path(@next_album) %>
+      <%= link_to 'Next Story', album_path(@next_album.slug) %>
     </div>
   </footer>
 </div>

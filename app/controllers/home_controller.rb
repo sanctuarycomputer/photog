@@ -31,14 +31,21 @@ class HomeController < ApplicationController
     @albums = Album.published
     @album = Album.find params[:id]
 
-    index = @albums.find_index(@album) + 1
-    if index == @albums.count
-      index = 0
+    next_album_index = @albums.find_index(@album) + 1
+    if next_album_index == @albums.count
+      next_album_index = 0
     end
 
-    @next_album = @albums[index]
+    previous_album_index = @albums.find_index(@album) - 1
+    if previous_album_index == -1
+      previous_album_index = @albums.count - 1
+    end
+
+    @next_album = @albums[next_album_index]
+    @previous_album = @albums[previous_album_index]
+
   end
-  
+
   private
   def setup_filters
     @tags = ActsAsTaggableOn::Tag.all
