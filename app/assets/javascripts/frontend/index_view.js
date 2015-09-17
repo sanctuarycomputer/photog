@@ -3,10 +3,26 @@ window.Photog = window.Photog || {};
 window.Photog.indexView = {
   init: function() {
     this.initGrid();
+    this.initSlideShow();
     this.initNav();
     this.initTags();
     this.initViewToggle();
     this.scrollDown();
+  },
+
+  initSlideShow: function() {
+    slideshowLength = $('header').length;
+    currentIndex = 0
+    $($('header')[currentIndex]).toggleClass('hidden');
+
+    setInterval(function(){
+      $($('header')[currentIndex]).toggleClass('hidden');
+      if(currentIndex === slideshowLength - 1){
+        currentIndex = 0
+      }
+      else currentIndex++
+      $($('header')[currentIndex]).toggleClass('hidden');
+    }, 8000)
   },
 
   initViewToggle: function() {

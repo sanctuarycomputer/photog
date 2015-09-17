@@ -20,7 +20,7 @@ class HomeController < ApplicationController
     end
 
     @page = Page.find 'homepage'
-    @image = @page.album.images.sample
+    @images = @page.album.images
   end
 
   def about
