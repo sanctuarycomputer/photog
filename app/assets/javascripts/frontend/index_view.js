@@ -6,7 +6,6 @@ window.Photog.indexView = {
     this.initSlideShow();
     this.initNav();
     this.initTags();
-    this.initViewToggle();
     this.scrollDown();
   },
 
@@ -23,18 +22,6 @@ window.Photog.indexView = {
       else currentIndex++
       $($('header')[currentIndex]).toggleClass('transparent');
     }, 8000)
-  },
-
-  initViewToggle: function() {
-    $('.view-toggle').on('click', function() {
-      if (this.getParameterByName('grid').length) {
-        var newUrl = this.removeURLParameter(window.location.href, 'grid');
-        window.location.href = newUrl;
-      } else {
-        var newUrl = this.updateQueryStringParameter(window.location.href, 'grid', 'photos');
-        window.location.href = newUrl;
-      }
-    }.bind(this));
   },
 
   initTags: function() {
@@ -58,14 +45,14 @@ window.Photog.indexView = {
   },
 
   removeURLParameter: function(url, parameter) {
-    var urlparts= url.split('?');   
+    var urlparts= url.split('?');
     if (urlparts.length>=2) {
 
       var prefix= encodeURIComponent(parameter)+'=';
       var pars= urlparts[1].split(/[&;]/g);
 
-      for (var i= pars.length; i-- > 0;) {    
-        if (pars[i].lastIndexOf(prefix, 0) !== -1) {  
+      for (var i= pars.length; i-- > 0;) {
+        if (pars[i].lastIndexOf(prefix, 0) !== -1) {
           pars.splice(i, 1);
         }
       }

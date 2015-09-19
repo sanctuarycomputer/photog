@@ -15,17 +15,7 @@
     </div>
   <% end %>
 
-  <% if !@tagged && !@photo_grid %>
-    <div class='view-toggle'>
-      <% if @photo_grid %>
-        <%= image_tag('album_view.svg') %>
-      <% else %>
-        <%= image_tag('image_view.svg') %>
-      <% end %>
-    </div>
-  <% end %>
-
-  <div class="grid">
+  <div class="grid <%= 'no-header' if @photo_grid %>">
     <div class="grid-sizer"></div>
     <% @albums.each do |album| %>
       <%= link_to album_path(album), class: "grid-item" do %>

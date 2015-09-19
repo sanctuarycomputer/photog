@@ -1,4 +1,5 @@
-<nav class="index <%= 'scrolled down tagged' if @tagged || @photo_grid %>">
+<nav class="index <%= 'scrolled down' if @photo_grid %>
+            <%= 'tagged' if @tagged %>">
 
   <% if @tags.length > 0 %>
     <div id='filters' class="clearfix">
@@ -15,5 +16,19 @@
   <%= link_to root_path do %>
     <span id="logo">Jaime Johnson</span>
   <% end %>
+
+  <% if !@tagged %>
+    <div class="nav-icons">
+      <a href="/">
+        <div class="nav-icon__album-button"></div>
+      </a>
+      <a href=".?grid=photos">
+        <div class="nav-icon__image-button"></div>
+      </a>
+    </div>
+
+
+  <% end %>
+
   <%= link_to "INFO", info_path, class: 'about-link' %>
 </nav>
