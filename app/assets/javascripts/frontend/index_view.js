@@ -13,15 +13,15 @@ window.Photog.indexView = {
   initSlideShow: function() {
     slideshowLength = $('header').length;
     currentIndex = 0
-    $($('header')[currentIndex]).toggleClass('hidden');
+    $($('header')[currentIndex]).toggleClass('transparent');
 
     setInterval(function(){
-      $($('header')[currentIndex]).toggleClass('hidden');
+      $($('header')[currentIndex]).toggleClass('transparent');
       if(currentIndex === slideshowLength - 1){
         currentIndex = 0
       }
       else currentIndex++
-      $($('header')[currentIndex]).toggleClass('hidden');
+      $($('header')[currentIndex]).toggleClass('transparent');
     }, 8000)
   },
 
