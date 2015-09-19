@@ -35,7 +35,18 @@ window.Photog.albumView = {
       speed: 300,
       runCallbacksOnInit: false,
       onSlideChangeEnd: this.slideDidChange.bind(this)
-    }) 
+    })
+
+    imageCoverLeft = $('.image-cover.left');
+    imageCoverRight = $('.image-cover.right')
+
+    imageCoverLeft.on("click", function(){
+      $(".swiper-button-prev").click();
+    })
+
+    imageCoverRight.on("click", function(){
+      $(".swiper-button-next").click();
+    })
   },
 
   getParameterByName: function(name) {

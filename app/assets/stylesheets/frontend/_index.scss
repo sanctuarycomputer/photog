@@ -12,11 +12,21 @@
     }
   }
 
-  header {
+  .header-container{
     height: 100vh;
+    width: 100%;
+    display: block
+  }
+  header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
     background-size: cover;
     background-position: 50% 50%;
     letter-spacing: 1px;
+    transition: opacity 3s;
 
     h1 {
       margin: 0;

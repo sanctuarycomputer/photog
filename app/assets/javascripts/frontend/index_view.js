@@ -3,9 +3,25 @@ window.Photog = window.Photog || {};
 window.Photog.indexView = {
   init: function() {
     this.initGrid();
+    this.initSlideShow();
     this.initNav();
     this.initTags();
     this.scrollDown();
+  },
+
+  initSlideShow: function() {
+    slideshowLength = $('header').length;
+    currentIndex = 0
+    $($('header')[currentIndex]).toggleClass('transparent');
+
+    setInterval(function(){
+      $($('header')[currentIndex]).toggleClass('transparent');
+      if(currentIndex === slideshowLength - 1){
+        currentIndex = 0
+      }
+      else currentIndex++
+      $($('header')[currentIndex]).toggleClass('transparent');
+    }, 8000)
   },
 
   initTags: function() {
@@ -29,14 +45,14 @@ window.Photog.indexView = {
   },
 
   removeURLParameter: function(url, parameter) {
-    var urlparts= url.split('?');   
+    var urlparts= url.split('?');
     if (urlparts.length>=2) {
 
       var prefix= encodeURIComponent(parameter)+'=';
       var pars= urlparts[1].split(/[&;]/g);
 
-      for (var i= pars.length; i-- > 0;) {    
-        if (pars[i].lastIndexOf(prefix, 0) !== -1) {  
+      for (var i= pars.length; i-- > 0;) {
+        if (pars[i].lastIndexOf(prefix, 0) !== -1) {
           pars.splice(i, 1);
         }
       }

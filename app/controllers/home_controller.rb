@@ -20,7 +20,7 @@ class HomeController < ApplicationController
     end
 
     @page = Page.find 'homepage'
-    @image = @page.album.images.sample
+    @images = @page.album.images
   end
 
   def about
@@ -30,6 +30,7 @@ class HomeController < ApplicationController
   def album
     @albums = Album.published
     @album = Album.find params[:id]
+    @referrer = params[:referrer]
 
     index = @albums.find_index(@album) + 1
     if index == @albums.count
