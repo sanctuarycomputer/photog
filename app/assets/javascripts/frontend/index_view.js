@@ -5,20 +5,7 @@ window.Photog.indexView = {
     this.initGrid();
     this.initNav();
     this.initTags();
-    this.initViewToggle();
     this.scrollDown();
-  },
-
-  initViewToggle: function() {
-    $('.view-toggle').on('click', function() {
-      if (this.getParameterByName('grid').length) {
-        var newUrl = this.removeURLParameter(window.location.href, 'grid');
-        window.location.href = newUrl;
-      } else {
-        var newUrl = this.updateQueryStringParameter(window.location.href, 'grid', 'photos');
-        window.location.href = newUrl;
-      }
-    }.bind(this));
   },
 
   initTags: function() {

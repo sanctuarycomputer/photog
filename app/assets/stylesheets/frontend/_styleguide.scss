@@ -62,15 +62,18 @@ nav {
       .about-link {
         color: $black;
       }
+      .nav-icon__album-button{
+        background-image: image-url('album_view.svg');
+      }
+      .nav-icon__image-button{
+        background-image: image-url('image_view.svg');
+      }
     }
     &.scrolled {
       z-index: 5;
       top: 0;
       position: fixed;
       transition: top 0.5s ease-in-out;
-      &.tagged{
-        position: relative;
-      }
       #logo {
         transition: opacity $mid-transition;
         opacity: 1;
@@ -169,6 +172,24 @@ nav {
 
     img {
       width: 100%;
+    }
+  }
+
+  .nav-icons{
+    position: absolute;
+    right: 65px;
+    top: 12px;
+    div{
+      display: inline-block;
+      height: 26px;
+      width: 26px;
+      background-size: cover;
+    }
+    .nav-icon__album-button{
+      background-image: image-url('album_view-white.svg');
+    }
+    .nav-icon__image-button{
+      background-image: image-url('image_view-white.svg');
     }
   }
 }
