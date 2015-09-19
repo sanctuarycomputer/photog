@@ -5,14 +5,14 @@
     <div class="swiper-wrapper">
       <% @album.images.each do |image| %>
         <div class='swiper-slide' data-caption="<%= image.caption %>">
-          <div class="image-cover-left"></div>
-          <!-- <div class="image-cover-left"></div> -->
+          <div class="image-cover left"></div>
+          <div class="image-cover right"></div>
           <%= image_tag image.file.url(:original), class: 'swiper-lazy' %>
           <div class="swiper-lazy-preloader"></div>
         </div>
       <% end %>
     </div>
-    
+
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
   </div>

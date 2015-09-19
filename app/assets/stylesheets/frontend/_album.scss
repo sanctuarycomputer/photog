@@ -19,19 +19,22 @@
     }
   }
 
-  .album-image-container{
-    // position: relative;
-  }
-
-  .image-cover-left{
+  .image-cover{
     height: 75%;
     width: 35%;
     top: 50%;
-    right: 50%;
     position: absolute;
     transform: translateY(-50%);
-    background-color: red;
+    background: transparent;
     z-index: 2;
+    &.left{
+      cursor: w-resize;
+      right: 50%;
+    }
+    &.right{
+      cursor: e-resize;
+      left: 50%;
+    }
   }
 
   footer {
