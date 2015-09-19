@@ -2,7 +2,15 @@
   <%= link_to root_path do %>
     Jaime Johnson
   <% end %>
-  <%= link_to root_path, class: 'exit' do %>
-    <%= image_tag('cross.svg') %>
+
+  <% if @referrer=="list"%>
+    <a href="/" class="exit">
+      <%= image_tag('cross.svg') %>
+    </a>
+  <% else %>
+    <a href="/?grid=photos" class="exit">
+      <%= image_tag('cross.svg') %>
+    </a>
   <% end %>
+
 </nav>
