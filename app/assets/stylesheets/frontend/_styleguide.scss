@@ -63,10 +63,16 @@ nav {
         color: $black;
       }
       .nav-icon__album-button{
-        background-image: image-url('album_view.svg');
+        background-image: image-url('album_view-gray.svg');
+        &.active, &:hover{
+          background-image: image-url('album_view.svg');
+        }
       }
       .nav-icon__image-button{
-        background-image: image-url('image_view.svg');
+        background-image: image-url('image_view-gray.svg');
+        &.active, &:hover{
+          background-image: image-url('image_view.svg');
+        }
       }
     }
     &.scrolled {
@@ -186,10 +192,16 @@ nav {
       background-size: cover;
     }
     .nav-icon__album-button{
-      background-image: image-url('album_view-white.svg');
+      background-image: image-url('album_view-gray.svg');
+      &.active, &:hover{
+        background-image: image-url('album_view-white.svg');
+      }
     }
     .nav-icon__image-button{
-      background-image: image-url('image_view-white.svg');
+      background-image: image-url('image_view-gray.svg');
+      &.active, &:hover{
+        background-image: image-url('image_view-white.svg');
+      }
     }
   }
 }

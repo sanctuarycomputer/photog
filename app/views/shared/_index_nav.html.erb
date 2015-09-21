@@ -20,10 +20,10 @@
   <% if !@tagged %>
     <div class="nav-icons">
       <a href="/">
-        <div class="nav-icon__album-button"></div>
+        <div class="nav-icon__album-button <%= 'active' if !@photo_grid %>"></div>
       </a>
       <a href=".?grid=photos">
-        <div class="nav-icon__image-button"></div>
+        <div class="nav-icon__image-button <%= 'active' if @photo_grid %>"></div>
       </a>
     </div>
 
