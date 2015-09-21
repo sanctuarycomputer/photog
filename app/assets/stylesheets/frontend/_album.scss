@@ -57,18 +57,22 @@
       @include serif;
       margin: -10px;
     }
-    .next-album {
+    .album-navigation {
       text-transform: uppercase;
       @include sans-serif;
       display: inline-block;
       position: absolute;
-      right: $standard-bumper;
-      border-bottom: 2px solid transparent; 
+      border-bottom: 2px solid transparent;
       transition: all .4s ease-in-out;
-
       &:hover {
         border-bottom: 2px solid black; 
       }
+    }
+    .next-album {
+      right: $standard-bumper;
+    }
+    .previous-album{
+      right: 120px;
     }
   }
 }
