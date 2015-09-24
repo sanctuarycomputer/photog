@@ -49,6 +49,6 @@ class HomeController < ApplicationController
 
   private
   def setup_filters
-    @tags = ActsAsTaggableOn::Tag.all
+    @tags = ActsAsTaggableOn::Tag.all.order('position asc')
   end
 end

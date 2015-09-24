@@ -16,6 +16,7 @@ class Album < ActiveRecord::Base
   acts_as_taggable
   acts_as_list
   has_many :images, -> { order(position: :asc) }
+  accepts_nested_attributes_for :images
 
   has_attached_file :file, :styles => { 
     :thumb => "x300>" 

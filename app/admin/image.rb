@@ -13,6 +13,9 @@ ActiveAdmin.register Image do
     column "Thumbnail" do |image|
       image_tag(image.file.url(:thumb))
     end
+    column "Tag List" do |image|
+      image.tag_list
+    end
     column :caption
     actions
   end

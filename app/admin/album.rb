@@ -43,6 +43,30 @@ ActiveAdmin.register Album do
       f.input :background_color, input_html: { class: 'minicolors', value: album.settings(:base).background_color }
       f.input :published, as: :boolean
     end
+
+    f.inputs do
+      f.has_many :images, sortable: :position, allow_destroy: true do |f|
+        f.input :file, :as => :file, :hint => f.object.file.exists? ? f.template.image_tag(f.object.file.url(:thumb)) : nil
+        f.input :caption
+      
+      f.input :tag_list,
+        label: "Tags",
+        input_html: {
+          data: {
+            placeholder: "Enter tags",
+            saved: f.object.tags.map{|t| {id: t.name, name: t.name}}.to_json,
+            url: autocomplete_tags_path },
+          class: 'tagselect'
+        }
+
+        unless f.object.id
+          f.object.visible = true
+        end
+        f.input :visible, as: :boolean
+      end
+    end
+
+
     f.actions
   end
 end
