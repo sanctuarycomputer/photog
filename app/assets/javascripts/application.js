@@ -11,4 +11,16 @@ $(function(){
   window.Photog[currentView+'View'].init();
   $content = $('#content');
   $content.addClass('loaded');
+  
+  // Back Buttons
+  var back = $('.trigger-back');
+  back.on('click', function() {
+    var referrerIsLocal = document.referrer.indexOf(location.protocol + "//" + location.host) === 0;
+
+    if (referrerIsLocal) {
+      window.history.back(); 
+    } else {
+      window.location.href = location.protocol + "//" + location.host;
+    }
+  });
 });
