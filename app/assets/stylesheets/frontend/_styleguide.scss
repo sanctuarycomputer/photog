@@ -125,6 +125,7 @@ nav {
         @media #{$medium-up}{
           &:after {
             content: "";
+            margin-top: -1px;
             width: 10px;
             position: absolute;
             background-size: 10px 20px;

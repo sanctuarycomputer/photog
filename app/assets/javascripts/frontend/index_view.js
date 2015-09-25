@@ -7,6 +7,11 @@ window.Photog.indexView = {
     this.initNav();
     this.initTags();
     this.scrollDown();
+    this.showArrow();
+  },
+
+  showArrow: function() {
+    $('.down-arrow').addClass('show');
   },
 
   initSlideShow: function() {

@@ -28,6 +28,7 @@
     letter-spacing: 1px;
     transition: opacity 3s;
 
+    bottom: 85px;
     h1 {
       margin: 0;
       font-size: 5em;
@@ -129,12 +130,22 @@
   left: 50%;
   margin-left: -15px;
   cursor: pointer;
+  opacity: 0;
+  transition: all 1.2s 2s;
+
+  &.show {
+    opacity: 1; 
+    bottom: 85px;
+  }
+
   &:after {
     content: "";
-    width: 15px;
+    width: 40px;
     position: absolute;
     background-size: 15px 30px;
-    height: 30px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 60px;
     transform: rotate(90deg);
     background-image: image-url('white-arrow.svg');
   }

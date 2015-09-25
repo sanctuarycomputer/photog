@@ -38,7 +38,7 @@ ActiveAdmin.register ActsAsTaggableOn::Tag do
     end
     
     Image.tagged_with(f.object).each do |image|
-      para link_to image_tag(image.file.url(:thumb)), edit_admin_album_image_path(image.album, image)
+      para link_to image_tag(image.file.url(:thumb)), edit_admin_album_path(image.album)
     end
     f.actions
   end
