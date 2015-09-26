@@ -32,6 +32,13 @@ nav {
   font-size: 1.2em;
   z-index: 2;
   @include serif;
+  
+  a.logo {
+    transition: 0.2s letter-spacing;
+    &:hover {
+      letter-spacing: 1px; 
+    }
+  }
 
   &.index {
     color: white;
@@ -175,14 +182,21 @@ nav {
     position: absolute;
     right: $standard-bumper;
     width: 30px;
+    height: 30px;
     top: 10px;
 
     img {
       width: 100%;
     }
+    transition: 0.2s all;
+
+    &:hover {
+      transform: rotate(90deg);
+    }
   }
 
   .nav-icons{
+    display: none;
     position: absolute;
     right: 65px;
     top: 8px;
@@ -229,12 +243,22 @@ nav {
 }
 
 .swiper-button-prev{
-  background-image: image-url('swiper-arrow.svg');
-  left: 15px;
+  cursor: w-resize;
+  display: none;
+  @media #{$medium-up} {
+    display: initial;
+    background-image: image-url('swiper-arrow.svg');
+    left: 15px;
+  }
 }
 
 .swiper-button-next{
-  background-image: image-url('swiper-arrow.svg') !important;
   transform: rotate(180deg);
-  right: 15px;
+  cursor: e-resize;
+  display: none;
+  @media #{$medium-up} {
+    display: initial;
+    background-image: image-url('swiper-arrow.svg');
+    right: 15px;
+  }
 }
