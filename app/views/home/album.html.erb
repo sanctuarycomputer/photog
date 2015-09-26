@@ -1,5 +1,5 @@
 <%= render "shared/nav" %>
-<div id='content' class="album">
+<div id='content' class="album" style="background-color: <%= @album.settings(:base).background_color %>">
 
   <div class="swiper-container">
     <div class="swiper-wrapper">
@@ -7,8 +7,14 @@
         <div class='swiper-slide' data-caption="<%= image.caption %>">
           <div class="image-cover left"></div>
           <div class="image-cover right"></div>
-          <%= image_tag image.file.url(:original), class: 'swiper-lazy' %>
-          <div class="swiper-lazy-preloader"></div>
+          
+          <div class="slide-inner">
+            <div class='background-image' style="background-image: url(<%= image.file.url(:original) %>)"></div>
+            <% if image.child_image %>
+              <div class='background-image' style="background-image: url(<%= image.child_image.file.url(:original) %>)"></div>
+            <% end %>
+          </div>
+
         </div>
       <% end %>
     </div>

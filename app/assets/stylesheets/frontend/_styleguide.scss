@@ -26,12 +26,19 @@ h6 {
 nav {
   position: fixed;
   width: 100%;
-  height: 50px;
+  height: 44px;
   text-align: center;
-  padding: 10px;
+  padding: 6px 10px;
   font-size: 1.2em;
   z-index: 2;
   @include serif;
+  
+  a.logo {
+    transition: 0.2s letter-spacing;
+    &:hover {
+      letter-spacing: 1px; 
+    }
+  }
 
   &.index {
     color: white;
@@ -56,7 +63,7 @@ nav {
       opacity: 0;
     }
     &.down {
-      background-color: white;
+      background-color: rgba(255, 255, 255, 0.8);
       color: $black;
       top: -50px;
       .about-link {
@@ -125,12 +132,13 @@ nav {
         @media #{$medium-up}{
           &:after {
             content: "";
+            margin-top: -1px;
             width: 10px;
             position: absolute;
             background-size: 10px 20px;
             height: 20px;
             transform: rotate(-90deg);
-            margin-left: 10px;
+            margin-left: 12px;
             background-image: image-url('white-arrow.svg');
             transition: $mid-transition transform;
           }
@@ -174,17 +182,24 @@ nav {
     position: absolute;
     right: $standard-bumper;
     width: 30px;
+    height: 30px;
     top: 10px;
 
     img {
       width: 100%;
     }
+    transition: 0.2s all;
+
+    &:hover {
+      transform: rotate(90deg);
+    }
   }
 
   .nav-icons{
+    display: none;
     position: absolute;
     right: 65px;
-    top: 12px;
+    top: 8px;
     div{
       display: inline-block;
       height: 26px;
@@ -228,12 +243,22 @@ nav {
 }
 
 .swiper-button-prev{
-  background-image: image-url('swiper-arrow.svg');
-  left: 15px;
+  cursor: w-resize;
+  display: none;
+  @media #{$medium-up} {
+    display: initial;
+    background-image: image-url('swiper-arrow.svg');
+    left: 15px;
+  }
 }
 
 .swiper-button-next{
-  background-image: image-url('swiper-arrow.svg') !important;
   transform: rotate(180deg);
-  right: 15px;
+  cursor: e-resize;
+  display: none;
+  @media #{$medium-up} {
+    display: initial;
+    background-image: image-url('swiper-arrow.svg');
+    right: 15px;
+  }
 }

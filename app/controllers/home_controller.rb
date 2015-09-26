@@ -2,10 +2,13 @@ class HomeController < ApplicationController
   def index
     setup_filters
 
-    @albums = []
-    @images = []
+    @albums     = []
+    @images     = []
     @photo_grid = false
-    @tagged = false
+    @tagged     = false
+
+    @page              = Page.find 'homepage'
+    @slideshow_images = @page.album.images
 
     if params[:grid]
       @photo_grid = true
@@ -18,9 +21,6 @@ class HomeController < ApplicationController
     else
       @albums = Album.published
     end
-
-    @page = Page.find 'homepage'
-    @images = @page.album.images
   end
 
   def about
@@ -30,7 +30,6 @@ class HomeController < ApplicationController
   def album
     @albums = Album.published
     @album = Album.find params[:id]
-    @referrer = params[:referrer]
 
     next_album_index = @albums.find_index(@album) + 1
     if next_album_index == @albums.count
@@ -49,6 +48,6 @@ class HomeController < ApplicationController
 
   private
   def setup_filters
-    @tags = ActsAsTaggableOn::Tag.all
+    @tags = ActsAsTaggableOn::Tag.all.order('position asc')
   end
 end

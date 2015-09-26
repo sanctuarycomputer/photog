@@ -152,8 +152,8 @@ Image.create({
 
 Page.create({
   name: 'Homepage',
-  title: 'Jaime Johnson',
-  copy: 'Photographer',
+  title: '',
+  copy: '',
   album: album
 })
 

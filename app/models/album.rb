@@ -1,6 +1,9 @@
 class Album < ActiveRecord::Base
   scope :published, -> { where(published: true).order('position asc') }
 
+  attr_accessor :delete_cover_image
+  before_validation { self.file.clear if self.delete_cover_image == '1' }
+
   # Background Color 
   attr_accessor :background_color
   has_settings :base
@@ -9,13 +12,19 @@ class Album < ActiveRecord::Base
   }
 
   extend FriendlyId
-  friendly_id :name, use: [:slugged, :finders]
+  friendly_id :build_slug, use: [:slugged, :finders]
 
-  validates :name, presence: true, uniqueness: true
+  def build_slug
+    [
+      :name,
+      "untitled-#{Time.now}"
+    ]
+  end
 
   acts_as_taggable
   acts_as_list
   has_many :images, -> { order(position: :asc) }
+  accepts_nested_attributes_for :images, allow_destroy: true
 
   has_attached_file :file, :styles => { 
     :thumb => "x300>" 
