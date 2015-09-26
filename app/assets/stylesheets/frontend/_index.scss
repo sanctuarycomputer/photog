@@ -12,6 +12,9 @@
     }
   }
 
+  padding-top: 44px;
+  min-height: 100vh;
+
   .header-container{
     height: 100vh;
     width: 100%;
@@ -46,9 +49,6 @@
     div.header-content {
       color: white;
     }
-  }
-  .no-header{
-    margin-top: 40px;
   }
   /* clear fix */
   .grid:after {
