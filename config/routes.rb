@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       as: 'autocomplete_tags'
 
   get '/info', to: 'home#about'
+  get '/tagged/:tag_name', as: :tagged, to: 'home#tagged'
   get '/:id', as: :album, to: 'home#album'
   root to: "home#index"
 end
