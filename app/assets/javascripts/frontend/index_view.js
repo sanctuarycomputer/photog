@@ -44,8 +44,8 @@ window.Photog.indexView = {
     var headerHeight = $('#content.index header').height();
     $('.down-arrow').on('click', function(){
       $('html, body').animate({
-          scrollTop: headerHeight
-      }, 1500);
+          scrollTop: headerHeight + 1
+      }, 800);
     })
   },
 

@@ -32,11 +32,11 @@ nav {
   font-size: 1.2em;
   z-index: 2;
   @include serif;
-  
+
   a.logo {
-    transition: 0.2s letter-spacing;
+    transition: 0.2s opacity;
     &:hover {
-      letter-spacing: 1px; 
+      opacity: 0.6;
     }
   }
 
@@ -47,6 +47,10 @@ nav {
       position: absolute;
       left: $standard-bumper;
       @include sans-serif;
+
+      &:hover {
+        text-decoration: underline; 
+      }
     }
     .about-link {
       @include sans-serif;
@@ -93,7 +97,7 @@ nav {
         display: inline-block;
         transform-style: preserve-3d;
         backface-visibility: hidden;
-        padding: 0 5px;
+        padding: 4px 5px 0px 5px;
       }
 
       #filters {
@@ -191,7 +195,7 @@ nav {
     transition: 0.2s all;
 
     &:hover {
-      transform: rotate(90deg);
+      opacity: 0.6;
     }
   }
 

@@ -14,6 +14,7 @@ class HomeController < ApplicationController
       @photo_grid = true
       if params[:tagged]
         @tagged = true
+        @tag_name = params[:tagged]
         @images = Image.visible.tagged_with params[:tagged]
       else
         @images = Image.visible
@@ -25,6 +26,10 @@ class HomeController < ApplicationController
 
   def about
     @page = Page.find 'about'
+  end
+
+  def tagged
+    @images = Image.tagged_with params[:tag_name]
   end
 
   def album

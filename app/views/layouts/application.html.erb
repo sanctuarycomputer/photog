@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Photog</title>
+  <title>Jaime Johnson</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <meta content="asset_path('share.jpg')" property="og:image">
+
+  <link rel="shortcut icon" href="<%= asset_path('favicon.png') %>" /> 
+
+  <meta content="<%= asset_path('share.jpg') %>" property="og:image">
   <meta content="Jaime Johnson" property="og:title">
-  <meta content="Photographer" property="og:description">
+  <meta content="LA/NY based Photographer." property="og:description">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:creator" content="@_HHFF">
   <meta name="twitter:title" content="Jaime Johnson">
-  <meta name="twitter:description" content="Photographer">
+  <meta name="twitter:description" content="LA/NY based Photographer.">
   <meta name="twitter:image" content="<%= asset_path('share.jpg') %>">
 </head>
 <body>
-
 
 <%= yield %>
 

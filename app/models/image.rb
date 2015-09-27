@@ -3,8 +3,13 @@ class Image < ActiveRecord::Base
     where(visible: true)
   }
 
+  default_scope {
+    order('position asc') 
+  }
+
   has_attached_file :file, :styles => { 
-    :thumb => "x300>" 
+    :thumb => "100x",
+    :full => "1000x" 
   }, :default_url => "/images/missing.jpg"
 
   validates_attachment_content_type :file, :content_type => /\Aimage\/.*\Z/
@@ -12,12 +17,11 @@ class Image < ActiveRecord::Base
   
   belongs_to :album
   has_one :child_image
-  acts_as_list scope: :album
+  acts_as_list scope: :album, top_of_list: '0'
   acts_as_taggable
 
   attr_accessor :child_image_file
   attr_accessor :delete_child_image
-  before_validation { setup_child_image(self.child_image_file, self.delete_child_image) }
 
   def setup_child_image(file, delete='0')
     if delete == '1'

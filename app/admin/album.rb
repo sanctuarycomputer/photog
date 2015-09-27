@@ -1,9 +1,41 @@
 ActiveAdmin.register Album do
-  permit_params :name, :description, :delete_cover_image, :tag_list, :file, :background_color, :published, images_attributes: [:id, :child_image_file, :delete_child_image, :album_id, :position, :file, :caption, :tag_list, :visible, :_destroy]
+  permit_params :name, 
+                :description, 
+                :delete_cover_image, 
+                :tag_list, :file, 
+                :background_color, 
+                :published, 
+                images_attributes: [
+                  :id, 
+                  :child_image_file, 
+                  :delete_child_image, 
+                  :album_id, 
+                  :position, 
+                  :file, 
+                  :caption, 
+                  :tag_list, 
+                  :visible, 
+                  :_destroy
+                ]
   
   sortable
   config.sort_order = 'position_asc'
   config.paginate   = false
+
+  controller do
+    after_update do |album|
+      image_attrs = permitted_params[:album][:images_attributes]
+
+      if image_attrs
+        image_attrs.each do |array|
+          hash = array[1]
+          image = Image.find(hash[:id])
+          image.setup_child_image hash[:child_image_file], hash[:delete_child_image]
+        end
+      end
+
+    end
+  end
 
   index do
     sortable_handle_column
@@ -14,10 +46,6 @@ ActiveAdmin.register Album do
       album.images.count 
     end
     actions
-  end
-
-  action_item :all_albums, only: [:edit, :show] do
-    link_to 'View all albums', admin_albums_path()
   end
 
   form do |f|
@@ -63,7 +91,6 @@ ActiveAdmin.register Album do
         end
       end
     end
-
 
     f.actions
   end

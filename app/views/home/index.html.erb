@@ -28,20 +28,20 @@
               <%= album.name %>
             </div>
           </div>
-          <%= image_tag album.cover_image.url(:thumb) %>
+          <%= image_tag album.cover_image.url(:full) %>
         </div>
       <% end %>
     <% end %>
 
     <% @images.each do |image| %>
-      <%= link_to album_path(image.album, image: image.album.images.find_index(image)), class: "grid-item" do %>
+      <%= link_to tagged_path(@tag_name, image: @images.find_index(image)), class: "grid-item" do %>
 
         <div class="img-container">
           <div class="overlay">
             <div class="overlay-title text-center vertical-center">
             </div>
           </div>
-          <%= image_tag image.file.url(:thumb) %>
+          <%= image_tag image.file.url(:full) %>
         </div>
       <% end %>
     <% end %>
