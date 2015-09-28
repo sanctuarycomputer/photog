@@ -1,4 +1,4 @@
-ActiveAdmin.register ActsAsTaggableOn::Tag do
+ActiveAdmin.register ActsAsTaggableOn::Tag, as: "Tag" do
   menu label: "Tags"
   permit_params :name
   
