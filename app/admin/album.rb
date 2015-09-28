@@ -29,8 +29,10 @@ ActiveAdmin.register Album do
       if image_attrs
         image_attrs.each do |array|
           hash = array[1]
-          image = Image.find(hash[:id])
-          image.setup_child_image hash[:child_image_file], hash[:delete_child_image]
+          if hash[:id] && Image.exists?(hash[:id])
+            image = Image.find(hash[:id])
+            image.setup_child_image hash[:child_image_file], hash[:delete_child_image]
+          end
         end
       end
 
@@ -82,9 +84,9 @@ ActiveAdmin.register Album do
        
           f.input :album
 
-          f.input :child_image_file, :as => :file, :hint => f.object.child_image && f.object.child_image.file.exists? ? f.template.image_tag(f.object.child_image.file.url(:thumb)) : nil
+          f.input :child_image_file, :label => "Editorial Image", :as => :file, :hint => f.object.child_image && f.object.child_image.file.exists? ? f.template.image_tag(f.object.child_image.file.url(:thumb)) : nil
           if (f.object.child_image && f.object.child_image.file.exists?)
-            f.input :delete_child_image, as: :boolean, :required => false, :label => 'Remove Child Image'
+            f.input :delete_child_image, as: :boolean, :required => false, :label => 'Remove Editorial Image'
           end
 
           f.input :visible, as: :boolean
