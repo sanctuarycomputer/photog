@@ -9,7 +9,7 @@ class Image < ActiveRecord::Base
 
   has_attached_file :file, :styles => { 
     :thumb => "100x",
-    :full => "1000x" 
+    :full => "1200x" 
   }, :default_url => "/images/missing.jpg"
 
   validates_attachment_content_type :file, :content_type => /\Aimage\/.*\Z/

@@ -25,13 +25,13 @@ class Album < ActiveRecord::Base
   end
 
   has_attached_file :file, :styles => { 
-    :thumb => "x300>" 
+    :thumb => "100x",
+    :full => "1200x" 
   }, :default_url => "/images/missing.jpg"
 
   validates_attachment_content_type :file, :content_type => /\Aimage\/.*\Z/
 
   has_one :page
-
 
   def cover_image
     if file.exists? || images.empty?
