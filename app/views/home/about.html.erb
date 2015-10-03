@@ -2,6 +2,6 @@
 <div id='content' class="about" style="background-color: <%= @page.settings(:base).background_color %>">
   <div class='about-content vertical-center text-center'>
     <%= image_tag @page.album.images.first.file(:original) %>
-    <h6><%= @page.copy %></h6>
+    <h6><%= raw(@page.copy) %></h6>
   </div>
 </div>

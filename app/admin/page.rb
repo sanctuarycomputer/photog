@@ -25,7 +25,8 @@ ActiveAdmin.register Page do
     f.inputs "Page Details" do
       f.input :name
       f.input :title
-      f.input :copy, as: :text, :input_html => { :rows => 6 }
+      f.input :copy, as: :html_editor
+      #f.input :copy, as: :text, :input_html => { :rows => 6 }
 
       f.input :album_id, label: 'Album', 
                          as: :select, 
