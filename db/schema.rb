@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151003151641) do
+ActiveRecord::Schema.define(version: 20151003171153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,15 @@ ActiveRecord::Schema.define(version: 20151003151641) do
   end
 
   add_index "settings", ["target_type", "target_id", "var"], name: "index_settings_on_target_type_and_target_id_and_var", unique: true, using: :btree
+
+  create_table "tag_orders", force: :cascade do |t|
+    t.integer  "tag_id"
+    t.text     "image_ids"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "tag_orders", ["tag_id"], name: "index_tag_orders_on_tag_id", using: :btree
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"

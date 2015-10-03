@@ -30,8 +30,21 @@ ActiveAdmin.register ActsAsTaggableOn::Tag, as: "Tag" do
     end
 
     if f.object.id
-      Image.tagged_with(f.object).each do |image|
-        para link_to image_tag(image.file.url(:thumb)), edit_admin_album_path(image.album)
+      div class: 'sortable', 'data-tag-id': "#{f.object.id}" do
+        f.object.ordered_images.each do |image|
+          div class: 'sortable-item', 'data-id': "#{image.id}" do
+            div do
+              link_to(image_tag(image.file.url(:thumb)), edit_admin_album_path(image.album))
+            end
+            div do
+              if image.visible
+                para "Visible (From album: #{image.album.name})"
+              else
+                para "Not Visible (From album: #{image.album.name})"
+              end
+            end
+          end
+        end
       end
     end
     f.actions

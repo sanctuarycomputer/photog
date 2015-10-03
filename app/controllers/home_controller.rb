@@ -15,7 +15,15 @@ class HomeController < ApplicationController
       if params[:tagged]
         @tagged = true
         @tag_name = params[:tagged]
-        @images = Image.visible.tagged_with params[:tagged]
+
+        tag = ActsAsTaggableOn::Tag.find_by_name params[:tagged]
+
+        if tag 
+          @images = tag.ordered_images.select { |i| i.visible? }
+        else
+          @images = Image.visible.tagged_with params[:tagged]
+        end
+
       else
         @images = Image.visible
       end
@@ -29,7 +37,13 @@ class HomeController < ApplicationController
   end
 
   def tagged
-    @images = Image.tagged_with(params[:tag_name]).select { |i| i.visible? }
+    tag = ActsAsTaggableOn::Tag.find_by_name params[:tag_name]
+    
+    if tag 
+      @images = tag.ordered_images.select { |i| i.visible? }
+    else
+      @images = Image.tagged_with(params[:tag_name]).select { |i| i.visible? }
+    end
   end
 
   def album

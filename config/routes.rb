@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   get '/admin/autocomplete_tags',
       to: 'application#autocomplete_tags',
       as: 'autocomplete_tags'
+  
+  put '/admin/order_images_in_tag',
+      to: 'application#order_images_in_tag',
+      as: 'order_images_in_tag'
 
   get '/info', to: 'home#about'
   get '/tagged/:tag_name', as: :tagged, to: 'home#tagged'
