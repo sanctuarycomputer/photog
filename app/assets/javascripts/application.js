@@ -2,7 +2,7 @@
 //= require jquery_ujs
 //= require imagesloaded.pkgd.min
 //= require isotope.pkgd
-//= require swiper.jquery.min
+//= require swiper.jquery
 //= require_tree ./frontend
 //= require fastclick
 $(function(){
