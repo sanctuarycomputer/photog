@@ -21,19 +21,26 @@ class Image < ActiveRecord::Base
   acts_as_taggable
 
   attr_accessor :child_image_file
+  attr_accessor :child_image_tag_list
   attr_accessor :delete_child_image
 
-  def setup_child_image(file, delete='0')
+  def setup_child_image(file, delete='0', tag_list='')
     if delete == '1'
       self.child_image.destroy if self.child_image
-    elsif file
+    else
       if self.child_image
-        child_image.update_attribute(file: file) 
+        child_image.update_attribute(file: file) if file
+        child_image.tag_list = tag_list
+        child_image.save
       else
-        ChildImage.create({
-          file: file,
-          image: self
-        })
+        if file
+          child_image = ChildImage.create({
+            file: file,
+            image: self
+          })
+          child_image.tag_list = tag_list
+          child_image.save
+        end
       end
     end
   end

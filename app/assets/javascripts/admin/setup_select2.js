@@ -7,6 +7,7 @@ $(document).ready(function() {
     var placeholder = $(this).data('placeholder');
     var url = $(this).data('url');
     var saved = $(this).data('saved');
+    
     $(this).select2({
       tags: true,
       placeholder: placeholder,
@@ -35,5 +36,5 @@ $(document).ready(function() {
         return item.name; 
       }
     });
-  });
+  }).select2('val', []);
 });

@@ -8,6 +8,7 @@ ActiveAdmin.register Album do
                 images_attributes: [
                   :id, 
                   :child_image_file, 
+                  :child_image_tag_list, 
                   :delete_child_image, 
                   :album_id, 
                   :position, 
@@ -31,7 +32,7 @@ ActiveAdmin.register Album do
           hash = array[1]
           if hash[:id] && Image.exists?(hash[:id])
             image = Image.find(hash[:id])
-            image.setup_child_image hash[:child_image_file], hash[:delete_child_image]
+            image.setup_child_image hash[:child_image_file], hash[:delete_child_image], hash[:child_image_tag_list]
           end
         end
       end
@@ -85,7 +86,18 @@ ActiveAdmin.register Album do
           f.input :album
 
           f.input :child_image_file, :label => "Editorial Image", :as => :file, :hint => f.object.child_image && f.object.child_image.file.exists? ? f.template.image_tag(f.object.child_image.file.url(:thumb)) : nil
+
           if (f.object.child_image && f.object.child_image.file.exists?)
+            f.input :child_image_tag_list,
+              label: "Editorial Image Tags",
+              input_html: {
+                data: {
+                  placeholder: "Enter tags",
+                  saved: f.object.child_image.tags.map{|t| {id: t.name, name: t.name}}.to_json,
+                  url: autocomplete_tags_path },
+                class: 'tagselect'
+              }
+
             f.input :delete_child_image, as: :boolean, :required => false, :label => 'Remove Editorial Image'
           end
 
