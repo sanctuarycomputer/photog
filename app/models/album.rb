@@ -11,15 +11,9 @@ class Album < ActiveRecord::Base
     settings(:base).background_color = background_color
   }
 
+  validates :name, presence: true, uniqueness: true
   extend FriendlyId
-  friendly_id :build_slug, use: [:slugged, :finders]
-
-  def build_slug
-    [
-      :name,
-      "untitled-#{Time.now}"
-    ]
-  end
+  friendly_id :name, use: [:slugged, :finders]
 
   acts_as_taggable
   acts_as_list

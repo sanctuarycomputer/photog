@@ -1,6 +1,7 @@
 ActiveAdmin.register Album do
   permit_params :name, 
                 :description, 
+                :show_name_on_hover,
                 :delete_cover_image, 
                 :tag_list, :file, 
                 :background_color, 
@@ -60,6 +61,7 @@ ActiveAdmin.register Album do
       end
 
       f.input :name
+      f.input :show_name_on_hover, as: :boolean
       # f.input :description, as: :text, :input_html => { :rows => 6 }
 
       f.input :background_color, input_html: { class: 'minicolors', value: album.settings(:base).background_color }
