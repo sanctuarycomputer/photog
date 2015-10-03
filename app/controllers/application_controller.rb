@@ -11,4 +11,21 @@ class ApplicationController < ActionController::Base
       format.json { render :json => @tags.collect{|t| {:id => t.name, :name => t.name }}}
     end
   end
+
+  def order_images_in_tag
+    tag = ActsAsTaggableOn::Tag.find params[:tag_id]
+    
+    if tag
+      tag_order = TagOrder.where(tag: tag).first_or_create do |tag_order|
+        tag_order.tag = tag 
+      end
+
+      tag_order.image_ids = params[:order]
+      tag_order.save
+    end 
+
+    respond_to do |format|
+      format.json { render json: "success" }
+    end
+  end
 end
