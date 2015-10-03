@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150925011917) do
+ActiveRecord::Schema.define(version: 20151003151641) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,14 +38,15 @@ ActiveRecord::Schema.define(version: 20150925011917) do
     t.string   "name"
     t.string   "description"
     t.string   "slug"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.integer  "position"
     t.string   "file_file_name"
     t.string   "file_content_type"
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
     t.boolean  "published"
+    t.boolean  "show_name_on_hover"
   end
 
   add_index "albums", ["slug"], name: "index_albums_on_slug", using: :btree

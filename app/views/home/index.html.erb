@@ -24,9 +24,13 @@
 
         <div class="img-container">
           <div class="overlay">
-            <div class="overlay-title text-center vertical-center">
-              <%= album.name %>
-            </div>
+
+            <% if album.show_name_on_hover %>
+              <div class="overlay-title text-center vertical-center">
+                <%= album.name %>
+              </div>
+            <% end %>
+
           </div>
           <%= image_tag album.cover_image.url(:full) %>
         </div>
@@ -38,8 +42,13 @@
 
         <div class="img-container">
           <div class="overlay">
-            <div class="overlay-title text-center vertical-center">
-            </div>
+
+            <% if image.album.show_name_on_hover %>
+              <div class="overlay-title text-center vertical-center">
+                <%= image.album.name %>
+              </div>
+            <% end %>
+
           </div>
           <%= image_tag image.file.url(:full) %>
         </div>
