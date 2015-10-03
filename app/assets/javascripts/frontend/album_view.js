@@ -38,7 +38,26 @@ window.Photog.albumView = {
     })
 
     imageCoverLeft = $('.image-cover.left');
-    imageCoverRight = $('.image-cover.right')
+    imageCoverRight = $('.image-cover.right');
+
+    $(document).on("keypress", function (e) {
+      e.preventDefault();
+      switch(e.which) {
+        case 37:
+          $(".swiper-button-prev").click();
+        break;
+        case 122:
+          $(".swiper-button-prev").click();
+        break;
+        case 39:
+          $(".swiper-button-next").click();
+        break;
+        case 120:
+          $(".swiper-button-next").click();
+        break;
+        default: return;
+      }
+    });
 
     imageCoverLeft.on("click", function(){
       $(".swiper-button-prev").click();

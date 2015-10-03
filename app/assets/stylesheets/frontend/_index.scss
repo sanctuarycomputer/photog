@@ -50,6 +50,10 @@
       color: white;
     }
   }
+
+  .grid {
+    height: 100vh; 
+  }
   /* clear fix */
   .grid:after {
     content: '';
