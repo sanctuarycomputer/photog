@@ -13,6 +13,8 @@ gem 'fastclick-rails'
 gem 'devise'
 gem 'activeadmin', '~> 1.0.0.pre1'
 gem 'activeadmin-sortable'
+gem 'active_admin_editor', github: 'ejholmes/active_admin_editor'
+
 gem 'acts_as_list'
 gem "paperclip", "~> 4.3"
 gem 'aws-sdk', '< 2.0'
