@@ -29,7 +29,7 @@ class HomeController < ApplicationController
   end
 
   def tagged
-    @images = Image.tagged_with params[:tag_name]
+    @images = Image.tagged_with(params[:tag_name]).select { |i| i.visible? }
   end
 
   def album
@@ -48,7 +48,6 @@ class HomeController < ApplicationController
 
     @next_album = @albums[next_album_index]
     @previous_album = @albums[previous_album_index]
-
   end
 
   private

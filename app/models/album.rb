@@ -20,6 +20,10 @@ class Album < ActiveRecord::Base
   has_many :images, -> { order(position: :asc) }
   accepts_nested_attributes_for :images, allow_destroy: true
 
+  def visible_images
+    self.images.select { |i| i.visible? }
+  end
+
   has_attached_file :file, :styles => { 
     :thumb => "x300>" 
   }, :default_url => "/images/missing.jpg"

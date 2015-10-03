@@ -3,7 +3,7 @@
 
   <div class="swiper-container">
     <div class="swiper-wrapper">
-      <% @album.images.each do |image| %>
+      <% @album.visible_images.each do |image| %>
         <div class='swiper-slide' data-caption="<%= image.caption %>">
           <div class="image-cover left"></div>
           <div class="image-cover right"></div>
@@ -26,7 +26,7 @@
   <footer>
     <div class='page-count'>
       <span>1</span>
-      / <%= @album.images.count %>
+      / <%= @album.visible_images.count %>
     </div>
     <div id='caption'></div>
 
