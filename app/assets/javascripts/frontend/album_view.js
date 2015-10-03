@@ -41,6 +41,7 @@ window.Photog.albumView = {
     imageCoverRight = $('.image-cover.right');
 
     $(document).on("keypress", function (e) {
+      e.preventDefault();
       switch(e.which) {
         case 37:
           $(".swiper-button-prev").click();
