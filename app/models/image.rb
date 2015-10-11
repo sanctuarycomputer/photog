@@ -23,19 +23,24 @@ class Image < ActiveRecord::Base
   attr_accessor :child_image_file
   attr_accessor :child_image_tag_list
   attr_accessor :delete_child_image
+  attr_accessor :child_image_visible
 
-  def setup_child_image(file, delete='0', tag_list='')
+  def setup_child_image(file, delete='0', tag_list='', visible='0')
+    visible = visible === '1'
+
     if delete == '1'
       self.child_image.destroy if self.child_image
     else
       if self.child_image
-        child_image.update_attribute(file: file) if file
-        child_image.tag_list = tag_list
-        child_image.save
+        self.child_image.update_attribute('file', file) if file
+        self.child_image.update_attribute('visible', visible)
+        self.child_image.tag_list = tag_list
+        self.child_image.save
       else
         if file
           child_image = ChildImage.create({
             file: file,
+            visible: visible,
             image: self
           })
           child_image.tag_list = tag_list

@@ -10,7 +10,7 @@
           
           <div class="slide-inner">
             <div class='background-image' style="background-image: url(<%= image.file.url(:original) %>)"></div>
-            <% if image.child_image %>
+            <% if image.child_image && image.child_image.visible? %>
               <div class='background-image' style="background-image: url(<%= image.child_image.file.url(:original) %>)"></div>
             <% end %>
           </div>

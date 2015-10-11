@@ -1,4 +1,4 @@
 class ChildImage < Image
-  self.inheritance_column = :image
   belongs_to :image
+  delegate :album, to: :image
 end
