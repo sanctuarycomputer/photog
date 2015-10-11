@@ -40,7 +40,7 @@ window.Photog.albumView = {
     imageCoverLeft = $('.image-cover.left');
     imageCoverRight = $('.image-cover.right');
 
-    $(document).on("keypress", function (e) {
+    $(document).on("keydown", function (e) {
       e.preventDefault();
       switch(e.which) {
         case 37:
