@@ -80,7 +80,7 @@ Rails.application.configure do
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
-      :bucket => 'com-jaimealanross-staging'
+      :bucket => 'com-jaimejohnson-staging'
     }
   }
 end

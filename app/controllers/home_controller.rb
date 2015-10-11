@@ -17,7 +17,6 @@ class HomeController < ApplicationController
         @tag_name = params[:tagged]
 
         tag = ActsAsTaggableOn::Tag.find_by_name params[:tagged]
-
         if tag 
           @images = tag.ordered_images.select { |i| i.visible? }
         else
