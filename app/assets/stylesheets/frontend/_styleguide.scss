@@ -52,6 +52,11 @@ nav {
         text-decoration: underline; 
       }
     }
+
+    &.album {
+      background-color: transparent !important; 
+    }
+
     .about-link {
       @include sans-serif;
       font-weight: 400;
