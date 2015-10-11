@@ -30,5 +30,6 @@ group :development, :test do
 end
 
 group :staging, :production do 
+  gem 'puma'
   gem 'rails_12factor'
 end
