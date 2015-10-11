@@ -30,6 +30,7 @@ class Album < ActiveRecord::Base
   }, :default_url => "/images/missing.jpg"
 
   validates_attachment_content_type :file, :content_type => /\Aimage\/.*\Z/
+  validates :file, dimensions: { width: 1200 }
 
   has_one :page
 
