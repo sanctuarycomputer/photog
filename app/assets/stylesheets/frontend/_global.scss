@@ -6,13 +6,36 @@ $large-up: "all and (min-width: 1000px)";
 
 $mid-transition: 600ms;
 
+@font-face {
+  font-family: 'KabelRegular';
+  src: asset-url('KabelRegular.eot');
+  src: asset-url('KabelRegular.svg#KabelRegular') format('svg'), 
+       asset-url('KabelRegular.eot?#iefix') format('embedded-opentype'),
+       asset-url('KabelRegular.woff') format('woff'),
+       asset-url('KabelRegular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*
+@font-face {
+  font-family: 'Caslon';
+  src: asset-url('ACaslonPro-Regular.eot');
+  src: asset-url('ACaslonPro-Regular.svg#Cason') format('svg'), 
+       asset-url('ACaslonPro-Regular.eot?#iefix') format('embedded-opentype'),
+       asset-url('ACaslonPro-Regular.woff') format('woff'),
+       asset-url('ACaslonPro-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+*/
 
 @mixin serif {
   font-family: 'Caslon', serif;
 }
 
 @mixin sans-serif {
-  font-family: 'Avenir Next', sans-serif;
+  font-family: 'KabelRegular', sans-serif;
   font-weight: 400;
   padding-top: 3px;
   font-size: 0.8em;
