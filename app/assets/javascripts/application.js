@@ -13,14 +13,17 @@ $(function(){
   $content.addClass('loaded');
   
   // Back Buttons
+  /*
   var back = $('.trigger-back');
-  back.on('click', function() {
+  back.on('touchend', function() {
+    
     var referrerIsLocal = document.referrer.indexOf(location.protocol + "//" + location.host) === 0;
-
     if (referrerIsLocal) {
-      window.history.back(); 
+      //window.history.back();
+      window.history.go(-1);
     } else {
       window.location.href = location.protocol + "//" + location.host;
     }
   });
+  */
 });
