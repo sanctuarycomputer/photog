@@ -3,7 +3,7 @@
     <span id="logo">Jaime Johnson</span>
   <% end %>
 
-  <%= link_to root_path, class: 'exit' do %>
+  <%= link_to root_path(grid: 'photos', tagged: @tag_name), class: 'exit' do %>
     <%= image_tag('cross.svg') %>
   <% end %>
 </nav>
