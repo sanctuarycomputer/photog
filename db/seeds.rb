@@ -1,7 +1,6 @@
 # Seed Albums
 #
-
-if ENV['RAILS_ENV'] === 'staging'
+unless ENV['RAILS_ENV'] === 'production' 
 
   album = Album.create({
     name: "Vibes",

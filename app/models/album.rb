@@ -17,7 +17,7 @@ class Album < ActiveRecord::Base
 
   acts_as_taggable
   acts_as_list
-  has_many :images, -> { order(position: :asc) }
+  has_many :images, -> { order(position: :asc) }, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
 
   def visible_images

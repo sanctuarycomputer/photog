@@ -17,7 +17,6 @@ $mid-transition: 600ms;
   font-style: normal;
 }
 
-/*
 @font-face {
   font-family: 'Caslon';
   src: asset-url('ACaslonPro-Regular.eot');
@@ -28,14 +27,24 @@ $mid-transition: 600ms;
   font-weight: normal;
   font-style: normal;
 }
-*/
+
+@font-face {
+  font-family: 'AvenirNext';
+  src: asset-url('AvenirNext-Regular.eot');
+  src: asset-url('AvenirNext-Regular.svg#AvenirNext') format('svg'), 
+       asset-url('AvenirNext-Regular.eot?#iefix') format('embedded-opentype'),
+       asset-url('AvenirNext-Regular.woff') format('woff'),
+       asset-url('AvenirNext-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 @mixin serif {
-  font-family: 'Caslon', serif;
+  font-family: 'KabelRegular', serif;
 }
 
 @mixin sans-serif {
-  font-family: 'KabelRegular', sans-serif;
+  font-family: 'AvenirNext', sans-serif;
   font-weight: 400;
   padding-top: 3px;
   font-size: 0.8em;
