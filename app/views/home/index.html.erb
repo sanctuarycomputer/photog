@@ -1,23 +1,26 @@
 <%= render "shared/index_nav" %>
+
 <div id='content' class="index" style="background-color: <%= @page.settings(:base).background_color %>">
+  
+  <% unless @disable_hero %>
+    <% if (!@tagged && !@photo_grid) %>
 
-  <% if !@tagged && !@photo_grid %>
+      <div class="header-container">
+        <% @slideshow_images.each_with_index do |image, index| %>
+          <header class="header-slideshow transparent" style="background-image: url(<%= image.file(:original) %>)">
+            <div class="header-content text-center vertical-center">
+              <h1><%= @page.title %></h1>
+              <h2><%= @page.copy %></h2>
+            </div>
+          </header>
+        <% end %>
 
-    <div class="header-container">
-      <% @slideshow_images.each_with_index do |image, index| %>
-        <header class="header-slideshow transparent" style="background-image: url(<%= image.file(:original) %>)">
-          <div class="header-content text-center vertical-center">
-            <h1><%= @page.title %></h1>
-            <h2><%= @page.copy %></h2>
-          </div>
-        </header>
-      <% end %>
-
-      <div class="down-arrow"></div>
-    </div>
+        <div class="down-arrow"></div>
+      </div>
+    <% end %>
   <% end %>
 
-  <div class="grid <%= 'no-header' if @photo_grid %>">
+  <div class="grid <%= 'no-header' if (@photo_grid || @disable_hero) %>">
     <div class="grid-sizer"></div>
     <% @albums.each do |album| %>
       <%= link_to album_path(album), class: "grid-item" do %>

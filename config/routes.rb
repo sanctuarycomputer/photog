@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       to: 'application#order_images_in_tag',
       as: 'order_images_in_tag'
 
+  get '/albums', to: 'home#index', defaults: { disable_hero: true }
   get '/info', to: 'home#about'
   get '/tagged/:tag_name', as: :tagged, to: 'home#tagged'
   get '/:id', as: :album, to: 'home#album'
