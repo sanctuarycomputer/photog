@@ -94,10 +94,8 @@ window.Photog.indexView = {
     var $grid = $('.grid').imagesLoaded(function() {
       $grid.isotope({
         itemSelector: '.grid-item',
-        percentPosition: true,
-        masonry: {
-          columnWidth: '.grid-sizer'
-        }
+        sortBy: 'original-order',
+        percentPosition: true
       });
     });
   },
