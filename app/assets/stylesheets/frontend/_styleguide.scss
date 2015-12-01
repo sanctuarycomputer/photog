@@ -245,6 +245,12 @@ nav {
   &.loaded {
     opacity: 1;
   }
+
+  &.touch {
+    .hide-for-touch {
+      display: none !important; 
+    } 
+  }
 }
 
 .swiper-button-prev, .swiper-button-next{
