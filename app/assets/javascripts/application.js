@@ -12,4 +12,8 @@ $(window).on('load',function(){
   $content = $('#content');
   window.Photog[$content.attr('class') + 'View'].init();
   $content.addClass('loaded');
+
+  if (!!('ontouchstart' in window)) {
+    $content.addClass('touch');
+  }
 });

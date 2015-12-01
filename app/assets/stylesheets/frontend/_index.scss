@@ -67,6 +67,7 @@
         z-index: 2;
         opacity: 0;
         transition: opacity .4s ease-in-out;
+        pointer-events: none;
 
         .overlay-title {
           font-size: 16px !important;
