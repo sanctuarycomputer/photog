@@ -6,7 +6,9 @@
 //= require_tree ./frontend
 //= require fastclick
 
-new FastClick(document.body);
+$(function() {
+  new FastClick(document.body);
+});
 
 $(window).on('load',function(){
   $content = $('#content');

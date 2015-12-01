@@ -1,10 +1,13 @@
 @import 'global';
 
 #content.album {
-  height: 100vh;
+  height: 85vh;
+  @media #{$medium-up} {
+    height: 100vh;
+  }
 
   .swiper-container {
-    height: 100%;
+    height: 100%; 
   }
 
   .swiper-slide {
@@ -62,7 +65,7 @@
     z-index: 1;
     text-align: center;
     height: 40px;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     font-size: 1em;
