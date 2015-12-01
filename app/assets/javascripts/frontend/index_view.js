@@ -91,13 +91,32 @@ window.Photog.indexView = {
    * Init Isotope
    */
   initGrid: function() {
-    var $grid = $('.grid').imagesLoaded(function() {
-      $grid.isotope({
-        itemSelector: '.grid-item',
-        percentPosition: true,
-        masonry: {
-          columnWidth: '.grid-sizer'
-        }
+    var didCompleteMagicRows = function() {
+      var overlays = this.find('.overlay').toArray();
+      
+      while(overlays.length > 0) {
+        var overlay = $(overlays.shift()); 
+        var image = overlay.siblings('img');
+        
+        overlay.css({
+          'left': image.css('margin-left'),
+          'width': image.css('width'),
+          'height': image.css('height')
+        })  
+      }
+    };
+
+    this.grid = $('.magic-grid').magicRows({
+      'max_height': 800,
+      'margin': 16,
+      'complete': didCompleteMagicRows
+    });
+
+    $(window).on('resize', function(){
+      $('.magic-grid').magicRows({
+        'max_height': 800,
+        'margin': 16,
+        'complete': didCompleteMagicRows
       });
     });
   },

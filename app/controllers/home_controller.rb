@@ -2,6 +2,8 @@ class HomeController < ApplicationController
   def index
     setup_filters
 
+    @disable_hero = params[:disable_hero]
+
     @albums     = []
     @images     = []
     @photo_grid = false

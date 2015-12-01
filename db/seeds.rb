@@ -1,7 +1,7 @@
 # Seed Albums
 #
-unless ENV['RAILS_ENV'] === 'production' 
-
+unless ENV['RAILS_ENV'] === 'production'
+  
   album = Album.create({
     name: "Vibes",
     published: true,
@@ -12,19 +12,28 @@ unless ENV['RAILS_ENV'] === 'production'
     file: File.new("#{Rails.root}/public/seed_images/4.jpg"),
     visible: true,
     album: album
-  })
+  }).tap do |image|
+    image.tag_list.add 'Fashion'
+    image.save
+  end
 
   Image.create({
     file: File.new("#{Rails.root}/public/seed_images/5.jpg"),
     visible: true,
     album: album
-  })
+  }).tap do |image|
+    image.tag_list.add 'Fashion'
+    image.save
+  end
 
   Image.create({
     file: File.new("#{Rails.root}/public/seed_images/6.jpg"),
     visible: true,
     album: album
-  })
+  }).tap do |image|
+    image.tag_list.add 'Fashion'
+    image.save
+  end
 
   album = Album.create({
     name: "Locations",
@@ -36,19 +45,28 @@ unless ENV['RAILS_ENV'] === 'production'
     file: File.new("#{Rails.root}/public/seed_images/7.jpg"),
     visible: true,
     album: album
-  })
+  }).tap do |image|
+    image.tag_list.add 'Fashion'
+    image.save
+  end
 
   Image.create({
     file: File.new("#{Rails.root}/public/seed_images/8.jpg"),
     visible: true,
     album: album
-  })
+  }).tap do |image|
+    image.tag_list.add 'Fashion'
+    image.save
+  end
 
   Image.create({
     file: File.new("#{Rails.root}/public/seed_images/9.jpg"),
     visible: true,
     album: album
-  })
+  }).tap do |image|
+    image.tag_list.add 'Fashion'
+    image.save
+  end
 
 
   album = Album.create({
@@ -61,19 +79,28 @@ unless ENV['RAILS_ENV'] === 'production'
     file: File.new("#{Rails.root}/public/seed_images/10.jpg"),
     visible: true,
     album: album
-  })
+  }).tap do |image|
+    image.tag_list.add 'Fashion'
+    image.save
+  end
 
   Image.create({
     file: File.new("#{Rails.root}/public/seed_images/11.jpg"),
     visible: true,
     album: album
-  })
+  }).tap do |image|
+    image.tag_list.add 'Fashion'
+    image.save
+  end
 
   Image.create({
     file: File.new("#{Rails.root}/public/seed_images/12.jpg"),
     visible: true,
     album: album
-  })
+  }).tap do |image|
+    image.tag_list.add 'Fashion'
+    image.save
+  end
 
   album = Album.create({
     name: "Local",
@@ -85,19 +112,28 @@ unless ENV['RAILS_ENV'] === 'production'
     file: File.new("#{Rails.root}/public/seed_images/13.jpg"),
     visible: true,
     album: album
-  })
+  }).tap do |image|
+    image.tag_list.add 'Fashion'
+    image.save
+  end
 
   Image.create({
     file: File.new("#{Rails.root}/public/seed_images/14.jpg"),
     visible: true,
     album: album
-  })
+  }).tap do |image|
+    image.tag_list.add 'Fashion'
+    image.save
+  end
 
   Image.create({
     file: File.new("#{Rails.root}/public/seed_images/15.jpg"),
     visible: true,
     album: album
-  })
+  }).tap do |image|
+    image.tag_list.add 'Fashion'
+    image.save
+  end
 
   # Seed User
   AdminUser.create({

@@ -1,4 +1,4 @@
-<nav class="index <%= 'scrolled down' if @photo_grid %>
+<nav class="index <%= 'scrolled down' if (@photo_grid || @disable_hero) %>
   <%= 'tagged' if @tagged %>">
 
   <% if @tags.length > 0 %>
