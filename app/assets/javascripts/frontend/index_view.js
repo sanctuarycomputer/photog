@@ -105,16 +105,16 @@ window.Photog.indexView = {
         })  
       }
     };
-
+    var magicRowHeight = 400;
     this.grid = $('.magic-grid').magicRows({
-      'max_height': 800,
+      'max_height': magicRowHeight,
       'margin': 16,
       'complete': didCompleteMagicRows
     });
 
     $(window).on('resize', function(){
       $('.magic-grid').magicRows({
-        'max_height': 800,
+        'max_height': magicRowHeight,
         'margin': 16,
         'complete': didCompleteMagicRows
       });
