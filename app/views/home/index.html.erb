@@ -23,7 +23,7 @@
   <div class="magic-grid <%= 'no-header' if (@photo_grid || @disable_hero) %>">
     <% @albums.each do |album| %>
       <%= link_to album_path(album), class: "grid-item" do %>
-        <div class="overlay hide-for-touch">
+        <div class="overlay">
           <% if album.show_name_on_hover %>
             <div class='overlay-title text-center vertical-center'>
               <%= album.name %>
