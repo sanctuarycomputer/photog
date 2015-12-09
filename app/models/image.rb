@@ -17,7 +17,7 @@ class Image < ActiveRecord::Base
   validates :file, dimensions: { width: 1200 }
   
   belongs_to :album
-  has_one :child_image
+  has_one :child_image, dependent: :destroy
   acts_as_list scope: :album, top_of_list: '0'
   acts_as_taggable
 
