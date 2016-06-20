@@ -51,7 +51,71 @@
     }
   }
 
+  .non-magic-grid {
+    display: block;
+    @media #{$medium-up} {
+      display: none;
+    }
+    margin: 0px 32px 16px 32px;
+    
+    a {
+      position: relative;
+      display: block;
+      padding: 16px 0px;
+
+      img {
+        width: 100%;
+        position: relative;
+        display: block;
+      }
+      .overlay{
+        height: calc(100% - 32px);
+        width: 100%;
+        margin: 0;
+        position: absolute;
+        background-color: black;
+        z-index: 2;
+        opacity: 0;
+        transition: opacity .4s ease-in-out;
+        pointer-events: none;
+
+        .overlay-title {
+          font-size: 16px !important;
+          @include sans-serif;
+          text-transform: uppercase;
+          letter-spacing: 6px;
+          font-weight: 300;
+          font-size: 1.2em;
+          margin: 0 auto;
+          opacity: 1;
+          position: absolute;
+          width: 100%;
+          padding: 0 15%;
+          margin-top: 10px;
+        }
+      }
+
+      &:hover {
+        .overlay {
+          opacity: 0.45; 
+        }    
+        .overlay-title {
+          z-index: 3;
+          text-align: center;
+          color: white;
+          opacity: 1;
+          margin-top: 0;
+          transition: margin .4s, opacity .4s;
+        }
+      }
+    }
+  }
+
   .magic-grid {
+    display: none;
+    @media #{$medium-up} {
+      display: block;
+    }
     margin: 0px 32px 16px 32px;
     
     a {

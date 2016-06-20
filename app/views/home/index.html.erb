@@ -20,6 +20,29 @@
     <% end %>
   <% end %>
 
+  <!-- No JS, for small only -->
+  <div class="non-magic-grid <%= 'no-header' if (@photo_grid || @disable_hero) %>">
+    <% @albums.each do |album| %>
+      <%= link_to album_path(album), class: "grid-item" do %>
+        <div class="overlay">
+          <% if album.show_name_on_hover %>
+            <div class='overlay-title text-center vertical-center'>
+              <%= album.name %>
+            </div>
+          <% end %>
+        </div>
+        <%= image_tag album.cover_image.url(:full) %>
+      <% end %>
+    <% end %>
+
+    <% @images.each do |image| %>
+      <%= link_to tagged_path(@tag_name, image: @images.find_index(image)), class: "grid-item" do %>
+        <%= image_tag image.file.url(:full) %>
+      <% end %>
+    <% end %>
+
+  </div>
+
   <div class="magic-grid <%= 'no-header' if (@photo_grid || @disable_hero) %>">
     <% @albums.each do |album| %>
       <%= link_to album_path(album), class: "grid-item" do %>
