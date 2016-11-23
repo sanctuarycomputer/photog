@@ -26,9 +26,5 @@ server {
     proxy_set_header X-Request-Start \$msec;
   }
 
-  location ~*  \.(jpg|jpeg|png|gif|ico|css|js|svg)$ {
-      expires 365d;
-  }
-
   include $DOKKU_ROOT/$APP/nginx.conf.d/*.conf;
 }
