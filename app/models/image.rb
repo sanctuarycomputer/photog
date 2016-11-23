@@ -40,9 +40,9 @@ class Image < ActiveRecord::Base
     processors: [:thumbnail, :compression],
     default_url: "/images/missing.jpg",
     convert_options: {
-      thumb: '-quality 85',
-      medium: '-quality 85',
-      full: '-quality 85'
+      thumb: '-quality 80',
+      medium: '-quality 80',
+      full: '-quality 80'
     }
   }
 
