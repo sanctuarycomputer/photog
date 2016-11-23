@@ -58,7 +58,7 @@ class Album < ActiveRecord::Base
     default_url: "/images/missing.jpg",
     convert_options: {
       thumb: '-quality 80',
-      medium: '-quality 60',
+      medium: '-quality 45',
       full: '-quality 80'
     }
   }
