@@ -4,7 +4,7 @@ class Album < ActiveRecord::Base
   attr_accessor :delete_cover_image
   before_validation { self.file.clear if self.delete_cover_image == '1' }
 
-  # Background Color 
+  # Background Color
   attr_accessor :background_color
   has_settings :base
   before_save -> {
@@ -24,10 +24,39 @@ class Album < ActiveRecord::Base
     self.images.select { |i| i.visible? }
   end
 
-  has_attached_file :file, :styles => { 
-    :thumb => "100x",
-    :full => "1200x" 
-  }, :default_url => "/images/missing.jpg"
+  has_attached_file :file, {
+    styles: {
+      thumb: {
+        geometry: '200x',
+        processor_options: {
+          compression: {
+            png: false,
+            jpeg: '-copy none -optimize -progressive'
+          }
+        }
+      },
+      medium: {
+        geometry: '800x',
+        processor_options: {
+          compression: {
+            png: false,
+            jpeg: '-copy none -optimize -progressive'
+          }
+        }
+      },
+      full: {
+        geometry: '1200x',
+        processor_options: {
+          compression: {
+            png: false,
+            jpeg: '-copy none -optimize -progressive'
+          }
+        }
+      },
+    },
+    processors: [:thumbnail, :compression],
+    default_url: "/images/missing.jpg"
+  }
 
   validates_attachment_content_type :file, :content_type => /\Aimage\/.*\Z/
   validates :file, dimensions: { width: 1200 }

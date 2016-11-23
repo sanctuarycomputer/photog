@@ -10,11 +10,20 @@ class Image < ActiveRecord::Base
   has_attached_file :file, {
     styles: {
       thumb: {
-        geometry: '100x',
+        geometry: '200x',
         processor_options: {
           compression: {
             png: false,
-            jpeg: '-copy none -optimize'
+            jpeg: '-copy none -optimize -progressive'
+          }
+        }
+      },
+      medium: {
+        geometry: '800x',
+        processor_options: {
+          compression: {
+            png: false,
+            jpeg: '-copy none -optimize -progressive'
           }
         }
       },
@@ -23,7 +32,7 @@ class Image < ActiveRecord::Base
         processor_options: {
           compression: {
             png: false,
-            jpeg: '-copy none -optimize'
+            jpeg: '-copy none -optimize -progressive'
           }
         }
       },
