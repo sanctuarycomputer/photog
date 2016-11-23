@@ -45,7 +45,7 @@ class Image < ActiveRecord::Base
   validates_attachment_presence :file
   validates :file, dimensions: { width: 1200 }
 
-  belongs_to :album
+  belongs_to :album, counter_cache: true
   has_one :child_image, dependent: :destroy
   acts_as_list scope: :album, top_of_list: '0'
   acts_as_taggable

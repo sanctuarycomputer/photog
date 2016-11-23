@@ -28,6 +28,7 @@ group :development, :test do
   gem 'pry'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'bullet'
 end
 
 group :staging, :production do

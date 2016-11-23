@@ -9,7 +9,7 @@ class HomeController < ApplicationController
     @photo_grid = false
     @tagged     = false
 
-    @page              = Page.find 'homepage'
+    @page              = Page.find('homepage')
     @slideshow_images = @page.album.images
 
     if params[:grid]
@@ -19,7 +19,7 @@ class HomeController < ApplicationController
         @tag_name = params[:tagged]
 
         tag = ActsAsTaggableOn::Tag.find_by_name params[:tagged]
-        if tag 
+        if tag
           @images = tag.ordered_images.select { |i| i.visible? }
         else
           @images = Image.visible.tagged_with params[:tagged]
@@ -29,7 +29,7 @@ class HomeController < ApplicationController
         @images = Image.visible
       end
     else
-      @albums = Album.published
+      @albums = Album.published.includes(:images)
     end
   end
 
@@ -40,8 +40,8 @@ class HomeController < ApplicationController
   def tagged
     tag = ActsAsTaggableOn::Tag.find_by_name params[:tag_name]
     @tag_name = params[:tag_name]
-    
-    if tag 
+
+    if tag
       @images = tag.ordered_images.select { |i| i.visible? }
     else
       @images = Image.tagged_with(params[:tag_name]).select { |i| i.visible? }
@@ -50,7 +50,7 @@ class HomeController < ApplicationController
 
   def album
     @albums = Album.published
-    @album = Album.find params[:id]
+    @album = Album.includes(images: [:child_image]).find(params[:id])
 
     next_album_index = @albums.find_index(@album) + 1
     if next_album_index == @albums.count
