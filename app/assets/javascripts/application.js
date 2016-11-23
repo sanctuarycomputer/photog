@@ -8,6 +8,7 @@
 
 $(function() {
   new FastClick(document.body);
+
 });
 
 $(window).on('load',function(){
