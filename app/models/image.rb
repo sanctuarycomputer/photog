@@ -38,7 +38,12 @@ class Image < ActiveRecord::Base
       },
     },
     processors: [:thumbnail, :compression],
-    default_url: "/images/missing.jpg"
+    default_url: "/images/missing.jpg",
+    convert_options: {
+      thumb: '-quality 85',
+      medium: '-quality 85',
+      full: '-quality 85'
+    }
   }
 
   validates_attachment_content_type :file, :content_type => /\Aimage\/.*\Z/
