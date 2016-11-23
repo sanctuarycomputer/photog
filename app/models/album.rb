@@ -64,7 +64,7 @@ class Album < ActiveRecord::Base
   has_one :page
 
   def cover_image
-    if file.exists? || images.empty?
+    if file.present? || images.empty?
       file
     else
       images.first.file
