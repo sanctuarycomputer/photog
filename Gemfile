@@ -17,6 +17,7 @@ gem 'active_admin_editor', github: 'boontdustie/active_admin_editor'
 
 gem 'acts_as_list'
 gem "paperclip", "~> 4.3"
+gem 'paperclip-compression'
 gem 'aws-sdk', '< 2.0'
 gem "friendly_id"
 gem 'select2-rails'
@@ -29,7 +30,7 @@ group :development, :test do
   gem 'spring'
 end
 
-group :staging, :production do 
+group :staging, :production do
   gem 'puma'
   gem 'rails_12factor'
 end

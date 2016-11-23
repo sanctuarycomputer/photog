@@ -4,18 +4,38 @@ class Image < ActiveRecord::Base
   }
 
   default_scope {
-    order('position asc') 
+    order('position asc')
   }
 
-  has_attached_file :file, :styles => { 
-    :thumb => "100x",
-    :full => "1200x" 
-  }, :default_url => "/images/missing.jpg"
+  has_attached_file :file, {
+    styles: {
+      thumb: {
+        geometry: '100x',
+        processor_options: {
+          compression: {
+            png: false,
+            jpeg: '-copy none -optimize'
+          }
+        }
+      },
+      full: {
+        geometry: '1200x',
+        processor_options: {
+          compression: {
+            png: false,
+            jpeg: '-copy none -optimize'
+          }
+        }
+      },
+    },
+    processors: [:thumbnail, :compression],
+    default_url: "/images/missing.jpg"
+  }
 
   validates_attachment_content_type :file, :content_type => /\Aimage\/.*\Z/
   validates_attachment_presence :file
   validates :file, dimensions: { width: 1200 }
-  
+
   belongs_to :album
   has_one :child_image, dependent: :destroy
   acts_as_list scope: :album, top_of_list: '0'
