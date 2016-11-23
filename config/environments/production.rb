@@ -79,9 +79,11 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.paperclip_defaults = {
-    :storage => :s3,
-    :s3_credentials => {
-      :bucket => 'com-jaimejohnson-production'
+    storage: :s3,
+    url: ":s3_alias_url",
+    s3_host_alias: "https://d2cxp84385uq2h.cloudfront.net",
+    s3_credentials: {
+      bucket: 'com-jaimejohnson-production'
     }
   }
 end
