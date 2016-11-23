@@ -1,7 +1,7 @@
 <%= render "shared/index_nav" %>
 
 <div id='content' class="index" style="background-color: <%= @page.settings(:base).background_color %>">
-  
+
   <% unless @disable_hero %>
     <% if (!@tagged && !@photo_grid) %>
 
@@ -31,13 +31,13 @@
             </div>
           <% end %>
         </div>
-        <%= image_tag album.cover_image.url(:full) %>
+        <%= image_tag album.cover_image.url(:medium) %>
       <% end %>
     <% end %>
 
     <% @images.each do |image| %>
       <%= link_to tagged_path(@tag_name, image: @images.find_index(image)), class: "grid-item" do %>
-        <%= image_tag image.file.url(:full) %>
+        <%= image_tag image.file.url(:medium) %>
       <% end %>
     <% end %>
 
@@ -53,13 +53,13 @@
             </div>
           <% end %>
         </div>
-        <%= image_tag album.cover_image.url(:full) %>
+        <%= image_tag album.cover_image.url(:medium) %>
       <% end %>
     <% end %>
 
     <% @images.each do |image| %>
       <%= link_to tagged_path(@tag_name, image: @images.find_index(image)), class: "grid-item" do %>
-        <%= image_tag image.file.url(:full) %>
+        <%= image_tag image.file.url(:medium) %>
       <% end %>
     <% end %>
 

@@ -7,12 +7,12 @@
         <div class='swiper-slide' data-caption="<%= image.caption %>">
           <div class="image-cover left"></div>
           <div class="image-cover right"></div>
-          
+
           <div class="slide-inner">
-            <div class='background-image' style="background-image: url(<%= image.file.url(:original) %>)"></div>
-            <!-- 
+            <div class='background-image' style="background-image: url(<%= image.file.url(:full) %>)"></div>
+            <!--
             <% if image.child_image && image.child_image.visible? %>
-              <div class='background-image' style="background-image: url(<%= image.child_image.file.url(:original) %>)"></div>
+              <div class='background-image' style="background-image: url(<%= image.child_image.file.url(:full) %>)"></div>
             <% end %>
             -->
           </div>
@@ -20,7 +20,7 @@
         </div>
       <% end %>
     </div>
-    
+
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
   </div>
